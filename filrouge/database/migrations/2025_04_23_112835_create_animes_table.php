@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('content_id')->constrained('contents')->onDelete('cascade');
             $table->integer('nbr_episodes')->unsigned();
+            $table->integer('nbr_saisons')->unsigned();
             $table->dateTime('date_debut');
             $table->dateTime('date_fin');
             $table->string('producteur');
