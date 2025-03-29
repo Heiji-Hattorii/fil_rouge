@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('mangas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('content_id')->constrained('contents')->onDelete('cascade');
+            $table->integer('nbr_chapitres')->unsigned();
+            $table->dateTime('date_debut');
+            $table->dateTime('date_fin');
+            $table->string('auteur');
             $table->timestamps();
         });
     }

@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('bibliotheques', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('content_id')->constrained('contents')->onDelete('cascade');
+            $table->enum('statut',['en cours','a voir','termine']);
             $table->timestamps();
         });
     }

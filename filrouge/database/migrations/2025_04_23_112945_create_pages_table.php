@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('chapitre_id')->constrained('chapitres')->onDelete('cascade');
+            $table->integer('numero_page')->unsigned();
+            $table->string('contenu');
             $table->timestamps();
         });
     }

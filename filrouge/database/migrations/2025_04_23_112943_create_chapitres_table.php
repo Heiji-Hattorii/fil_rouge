@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('chapitres', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('manga_id')->constrained('mangas')->onDelete('cascade');
+            $table->integer('nbr_pages')->unsigned();
+            $table->dateTime('date_ajout');
             $table->timestamps();
         });
     }

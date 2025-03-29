@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('animes', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('content_id')->constrained('contents')->onDelete('cascade');
+            $table->integer('nbr_episodes')->unsigned();
+            $table->dateTime('date_debut');
+            $table->dateTime('date_fin');
+            $table->string('producteur');
             $table->timestamps();
         });
     }
