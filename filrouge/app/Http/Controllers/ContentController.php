@@ -9,8 +9,8 @@ class ContentController extends Controller
 {
     public function index(){
         $allcontent = Content::all();
-        return view('content.index', compact('allcontent'));}
-
+        return view('content.index', compact('allcontent'));
+    }
 
     public function store(Request $request){
         $validated = $request->validate([
@@ -22,7 +22,11 @@ class ContentController extends Controller
         ]);
 
         $content = Content::create($validated);
-        return redirect()->route('content.index');}
+        
+        if ($content->type === 'anime') {
+            return redirect()->route('anime.create', ['content_id' => $content->id]);
+        } 
+    }
 
 
     public function show($id){
@@ -48,7 +52,7 @@ class ContentController extends Controller
         ]);
         return redirect()->route('content.index');}
 
-        
+
     public function destroy(Request $request){
         $content = Content::findOrFail($request->DID);
         $content->delete();
