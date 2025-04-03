@@ -22,10 +22,14 @@ class ContentController extends Controller
         ]);
 
         $content = Content::create($validated);
+        // return redirect()->route('content.index');
         
         if ($content->type === 'anime') {
             return redirect()->route('anime.create', ['content_id' => $content->id]);
         } 
+        else {
+            return redirect()->route('manga.create', ['content_id' => $content->id]);
+        }
     }
 
 

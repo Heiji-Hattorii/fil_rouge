@@ -18,8 +18,6 @@ Route::get('/anime/create/{content_id}', [AnimeController::class, 'create'])->na
 Route::post('/anime', [AnimeController::class, 'store'])->name('anime.store');
 Route::get('/anime/{id}/details', [AnimeController::class, 'show'])->name('anime.details');
 
-
-// Route::post('/anime/store', [AnimeController::class, 'store'])->name('anime.store');
-
 Route::get('/manga/create/{content_id}', [MangaController::class, 'create'])->name('manga.create');
-Route::post('/manga/store', [MangaController::class, 'store'])->name('manga.store');
+Route::post('/manga/', [MangaController::class, 'store'])->name('manga.store');
+Route::get('/manga/{id}/details', [MangaController::class, 'show'])->name('manga.details');

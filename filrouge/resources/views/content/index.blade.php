@@ -27,7 +27,16 @@
         <a href="{{ route('content.details', ['id' => $content->id]) }}" class="bg-black text-white rounded-md w-[80px] h-[30px] inline-block text-center">
     Lire
 </a>
-    <button class="bg-gray-600 text-white rounded-md w-[60px] h-[30px]" onClick="supprimerContent({{$content->id}})">
+@if($content->type == "anime" && !isset($content->anime))
+<a href="{{ route('anime.create', ['content_id' => $content->id]) }}" class="bg-black text-white rounded-md w-[260px] h-[30px] inline-block text-center">
+ajouter ton anime content
+</a>
+@elseif($content->type == "manga" && !isset($content->manga))
+<a href="{{ route('manga.create', ['content_id' => $content->id]) }}" class="bg-black text-white rounded-md w-[260px] h-[30px] inline-block text-center">
+ajouter ton manga content
+</a>
+@endif
+<button class="bg-gray-600 text-white rounded-md w-[60px] h-[30px]" onClick="supprimerContent({{$content->id}})">
         supprimer</button>
     @endforeach
     @else

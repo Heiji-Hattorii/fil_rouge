@@ -1,3 +1,6 @@
+
+<h2>Details d anime</h2>
+
 <div>Le titre est : {{ $anime->content->titre }}</div>
 <div>La description est : {{ $anime->content->description }}</div>
 <div>La date est : {{ $anime->content->datePublication }}</div>
