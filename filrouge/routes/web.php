@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\MangaController;
+use App\Http\Controllers\ChapitreController;
+use App\Http\Controllers\PageController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -21,3 +23,20 @@ Route::get('/anime/{id}/details', [AnimeController::class, 'show'])->name('anime
 Route::get('/manga/create/{content_id}', [MangaController::class, 'create'])->name('manga.create');
 Route::post('/manga/', [MangaController::class, 'store'])->name('manga.store');
 Route::get('/manga/{id}/details', [MangaController::class, 'show'])->name('manga.details');
+
+Route::get('/manga/{manga_id}/chapitres', [ChapitreController::class, 'index'])->name('manga.chapitres.index');
+Route::get('/manga/{manga_id}/chapitres/create', [ChapitreController::class, 'create'])->name('manga.chapitres.create');
+Route::post('/chapitres', [ChapitreController::class, 'store'])->name('manga.chapitres.store');
+
+Route::get('/chapitres/{id}', [ChapitreController::class, 'show'])->name('manga.chapitres.show');
+Route::get('/chapitres/{id}/edit', [ChapitreController::class, 'edit'])->name('manga.chapitres.edit');
+Route::put('/chapitres/{id}', [ChapitreController::class, 'update'])->name('manga.chapitres.update');
+Route::delete('/chapitres/{id}', [ChapitreController::class, 'destroy'])->name('manga.chapitres.destroy');
+
+
+Route::get('/chapitres/{chapitre_id}/pages/create', [PageController::class, 'create'])->name('manga.pages.create');
+Route::post('/chapitres/{chapitre_id}/pages', [PageController::class, 'store'])->name('manga.pages.store');
+Route::get('/chapitres/{chapitre_id}/pages', [PageController::class, 'index'])->name('manga.chapitres.pages.index');
+Route::get('/chapitres/{chapitre_id}/pages', [PageController::class, 'showall'])->name('manga.chapitres.pages.show');
+Route::post('/pages/{id}', [PageController::class, 'update'])->name('manga.pages.update');
+Route::delete('/pages/{id}', [PageController::class, 'destroy'])->name('manga.pages.destroy');

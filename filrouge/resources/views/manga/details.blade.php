@@ -11,6 +11,6 @@
     <p><strong>Auteur :</strong> {{ $manga->auteur }}</p>
     <p><strong>Date de début :</strong> {{ $manga->date_debut }}</p>
     <p><strong>Date de fin :</strong> {{ $manga->date_fin }}</p>
-
+    <a href="{{ route('manga.chapitres.index', ['manga_id' => $manga->id]) }}" class="btn btn-primary">Voir les Chapitres</a>
     <a href="{{ route('content.index') }}" class="btn btn-secondary">Retour</a>
 </div>
