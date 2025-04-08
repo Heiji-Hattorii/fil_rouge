@@ -6,6 +6,7 @@ use App\Http\Controllers\AnimeController;
 use App\Http\Controllers\MangaController;
 use App\Http\Controllers\ChapitreController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\EpisodeController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -40,3 +41,18 @@ Route::get('/chapitres/{chapitre_id}/pages', [PageController::class, 'index'])->
 Route::get('/chapitres/{chapitre_id}/pages', [PageController::class, 'showall'])->name('manga.chapitres.pages.show');
 Route::post('/pages/{id}', [PageController::class, 'update'])->name('manga.pages.update');
 Route::delete('/pages/{id}', [PageController::class, 'destroy'])->name('manga.pages.destroy');
+
+
+
+
+Route::prefix('anime/{anime_id}')->group(function () {
+    Route::get('episodes', [EpisodeController::class, 'index'])->name('anime.episodes.index');
+    Route::post('episodes', [EpisodeController::class, 'store'])->name('anime.episodes.store');
+    Route::put('episodes/{id}', [EpisodeController::class, 'update'])->name('anime.episodes.update');
+    Route::get('episodes/{id}', [EpisodeController::class, 'show'])->name('anime.episodes.show');
+    Route::delete('episodes/{id}', [EpisodeController::class, 'destroy'])->name('anime.episodes.destroy');
+});
+
+
+
+

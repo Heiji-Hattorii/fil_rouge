@@ -16,3 +16,4 @@
 <a href="{{ route('content.index') }}" class="bg-blue-600 text-white rounded-md w-[80px] h-[30px] inline-block text-center">
     Revenir
 </a>
+<a href="{{ route('anime.episodes.index', ['anime_id' => $anime->id]) }}" class="...">consulter épisodes</a>

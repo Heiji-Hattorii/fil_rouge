@@ -14,7 +14,7 @@ class PageController extends Controller
         $chapitre = Chapitre::findOrFail($chapitre_id);
         $pages = $chapitre->pages()->orderBy('numero_page')->get();
 
-        return view('manga.chapitres.pages.create', compact('chapitre', 'pages'));
+        return view('manga.chapitres.pages.index', compact('chapitre', 'pages'));
     }
 
     public function index($chapitre_id)

@@ -43,7 +43,7 @@
                             </form>
                             <a href="{{ route('manga.pages.create', ['chapitre_id' => $chapitre->id]) }}" class="btn btn-primary">Ajouter des pages</a>
                             <a href="{{ route('manga.chapitres.pages.show', ['chapitre_id' => $chapitre->id]) }}" class="btn btn-primary">Voir Tout les pages</a>
-                        </td>
+                            </td>
                     </tr>
                     @endforeach
             </tbody>
