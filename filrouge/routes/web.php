@@ -7,12 +7,20 @@ use App\Http\Controllers\MangaController;
 use App\Http\Controllers\ChapitreController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\EpisodeController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BibliothequeController;
+
+
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 Route::post('/content',[ContentController::class,'store']);
 Route::post('/content/update',[ContentController::class,'update'])->name('content.update');
-Route::get('/content',[ContentController::class,'index'])->name('content.index');
+Route::get('/content',[BibliothequeController::class,'myindex'])->name('content.index');
 Route::post('/content/delete',[ContentController::class,'destroy'])->name('content.delete');
 Route::get('/content/{id}/details', [ContentController::class, 'show'])->name('content.details');
 
@@ -53,6 +61,33 @@ Route::prefix('anime/{anime_id}')->group(function () {
     Route::delete('episodes/{id}', [EpisodeController::class, 'destroy'])->name('anime.episodes.destroy');
 });
 
+
+
+
+
+Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('login', [AuthController::class, 'login']);
+Route::get('signup', [AuthController::class, 'showSignupForm'])->name('signup');
+Route::post('signup', [AuthController::class, 'register'])->name('register');
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.delete');
+});
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('bibliotheques', BibliothequeController::class);
+});
+Route::post('/bibliotheque/ajouter/{content_id}', [BibliothequeController::class, 'ajouter'])->name('bibliotheque.ajouter');
+Route::delete('/bibliotheque/retirer/{content_id}', [BibliothequeController::class, 'retirer'])->name('bibliotheque.retirer');
 
 
 

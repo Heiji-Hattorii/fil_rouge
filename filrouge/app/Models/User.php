@@ -2,14 +2,13 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
@@ -21,6 +20,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'bio',
+        'age',
+        'profile_photo',
+        'cover_photo',
+        'pseudo',
     ];
 
     /**
@@ -45,4 +50,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function bibliotheques()
+{
+    return $this->hasMany(Bibliotheque::class);
+}
+
 }

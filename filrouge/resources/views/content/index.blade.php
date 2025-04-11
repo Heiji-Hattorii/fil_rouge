@@ -15,13 +15,37 @@
 
 </form>
 <div>
-    @if(isset($allcontent) && count($allcontent)>0)
-    @foreach ($allcontent as $content)
+    @if(isset($contents) && count($contents)>0)
+    @foreach ($contents as $content)
     <div>le titre est {{$content->titre}}</div>
     <div>le description est {{$content->description}}</div>
     <div>la date est {{$content->datePublication}}</div>
     <div>le type est {{$content->type}}</div>
     <div>le genre est {{$content->genre}}</div>
+
+    @if(in_array($content->id, $bibliothequeIds))
+    <form action="{{ route('bibliotheque.retirer', ['content_id' => $content->id]) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="bg-red-600 text-white rounded-md w-[260px] h-[30px]">
+            Retirer de la bibliothèque
+        </button>
+    </form>
+@else
+    <form action="{{ route('bibliotheque.ajouter', ['content_id' => $content->id]) }}" method="POST">
+        @csrf
+        <select name="statut" required class="border border-gray-300 rounded-md mb-2">
+            <option value="en cours">En cours</option>
+            <option value="a voir">À voir</option>
+            <option value="termine">Terminé</option>
+        </select>
+        <button type="submit" class="bg-black text-white rounded-md w-[260px] h-[30px]">
+            Ajouter à la bibliothèque
+        </button>
+    </form>
+@endif
+
+
     <button class="bg-gray-400 text-white rounded-md w-[60px] h-[30px]" onClick="modifierContent({{$content->id}},'{{$content->titre}}', '{{$content->description}}','{{$content->datePublication}}','{{$content->type}}','{{$content->genre}}')">
         modifier</button>
         <a href="{{ route('content.details', ['id' => $content->id]) }}" class="bg-black text-white rounded-md w-[80px] h-[30px] inline-block text-center">
