@@ -14,7 +14,7 @@ class BibliothequeController extends Controller
         $bibliotheques = $user->bibliotheques()->with('content')->get();
         $contents = Content::all();  
     
-        return view('bibliotheques.index', compact('bibliotheques', 'contents'));  // Passer à la vue
+        return view('bibliotheques.index', compact('bibliotheques', 'contents'));  
     }
     public function myindex()
     {

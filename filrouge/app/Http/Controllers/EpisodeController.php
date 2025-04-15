@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Episode;
 use App\Models\Anime;
+use App\Models\Commentaire;
 
 class EpisodeController extends Controller
 {
@@ -44,11 +45,15 @@ class EpisodeController extends Controller
 }
 
 
-    public function show($anime_id, $id)
-    {
-        $episode = Episode::findOrFail($id);
-        return view('anime.episodes.show', compact('episode'));
-    }
+public function show($anime_id, $id)
+{
+    $episode = Episode::findOrFail($id);
+    
+    $comments = Commentaire::where('episode_id', $id)->orderBy('created_at', 'desc')->get();
+
+    return view('anime.episodes.show', compact('episode', 'comments'));
+}
+
 
     public function update(Request $request, $anime_id, $id)
     {

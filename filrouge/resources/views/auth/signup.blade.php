@@ -1,4 +1,4 @@
-<form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+ <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <label for="name">Nom :</label>
     <input type="text" name="name" required>
@@ -26,6 +26,7 @@
     
     <label for="pseudo">Pseudo :</label>
     <input type="text" name="pseudo" required>
-    
+    &
     <button type="submit">S'inscrire</button>
-</form>
+</form> 
+

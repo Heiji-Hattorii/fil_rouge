@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Chapitre;
 use App\Models\Manga;
+use App\Models\Commentaire;
 
 class ChapitreController extends Controller
 {
@@ -36,8 +37,10 @@ class ChapitreController extends Controller
     public function show($id)
     {
         $chapitre = Chapitre::findOrFail($id);
-        return view('manga.chapitres.show', compact('chapitre'));
+        $comments = Commentaire::where('chapitre_id', $id)->orderBy('created_at', 'desc')->get();
+        return view('manga.chapitres.show', compact('chapitre', 'comments'));
     }
+    
 
     public function edit($id)
     {

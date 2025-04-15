@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Content;
 use App\Models\Anime;
+use App\Models\Commentaire;
 
 
 
@@ -33,6 +34,11 @@ class AnimeController extends Controller
     public function show($id)
     {
         $anime = Anime::with('content')->findOrFail($id);
-        return view('anime.details', compact('anime'));
-    } 
+        $notationController = new NotationController();
+        $averageRating = $notationController->getAverageRating($anime->content->id);
+        $comments = Commentaire::where('content_id', $anime->content->id)->get();
+    
+        return view('anime.details', compact('anime', 'averageRating', 'comments'));
+    }
+    
 }

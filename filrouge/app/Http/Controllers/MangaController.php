@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Manga;
 use App\Models\Content;
+use App\Models\Notation;
+use App\Models\Commentaire;
 
 class MangaController extends Controller
 {
@@ -31,6 +33,12 @@ class MangaController extends Controller
     public function show($id)
     {
         $manga = Manga::with('content')->findOrFail($id);
-        return view('manga.details', compact('manga'));
+        $averageRating = Notation::where('content_id', $manga->content->id)->avg('note');
+        $comments = Commentaire::where('content_id', $manga->content->id)
+                                           ->whereNull('episode_id')
+                                           ->whereNull('chapitre_id')
+                                           ->get();
+    
+        return view('manga.details', compact('manga', 'averageRating', 'comments'));
     }
 }

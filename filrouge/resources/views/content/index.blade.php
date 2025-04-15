@@ -7,66 +7,64 @@
     <input type="date" name="datePublication" placeholder="datePublication">
     <input type="text" name="genre" placeholder="genre">
     <select name="type" id="type">
-    <option value="anime">Anime</option>
+    <option value="anime">A</option>
     <option value="manga">manga</option>
 </select>
-<button type="submit" class="bg-black text-white rounded-md w-[60px] h-[30px]">Ajouter</button>
-
-
+<button type="submit">Ajouter</button>
 </form>
-<div>
+<p>
     @if(isset($contents) && count($contents)>0)
     @foreach ($contents as $content)
-    <div>le titre est {{$content->titre}}</div>
-    <div>le description est {{$content->description}}</div>
-    <div>la date est {{$content->datePublication}}</div>
-    <div>le type est {{$content->type}}</div>
-    <div>le genre est {{$content->genre}}</div>
+    <p>le titre est {{$content->titre}}</p>
+    <p>le description est {{$content->description}}</p>
+    <p>la date est {{$content->datePublication}}</p>
+    <p>le type est {{$content->type}}</p>
+    <p>le genre est {{$content->genre}}</p>
 
     @if(in_array($content->id, $bibliothequeIds))
     <form action="{{ route('bibliotheque.retirer', ['content_id' => $content->id]) }}" method="POST">
         @csrf
         @method('DELETE')
-        <button type="submit" class="bg-red-600 text-white rounded-md w-[260px] h-[30px]">
+        <button type="submit">
             Retirer de la bibliothèque
         </button>
     </form>
 @else
     <form action="{{ route('bibliotheque.ajouter', ['content_id' => $content->id]) }}" method="POST">
         @csrf
-        <select name="statut" required class="border border-gray-300 rounded-md mb-2">
+        <select name="statut" required >
             <option value="en cours">En cours</option>
             <option value="a voir">À voir</option>
             <option value="termine">Terminé</option>
         </select>
-        <button type="submit" class="bg-black text-white rounded-md w-[260px] h-[30px]">
+        <button type="submit" >
             Ajouter à la bibliothèque
         </button>
     </form>
 @endif
 
 
-    <button class="bg-gray-400 text-white rounded-md w-[60px] h-[30px]" onClick="modifierContent({{$content->id}},'{{$content->titre}}', '{{$content->description}}','{{$content->datePublication}}','{{$content->type}}','{{$content->genre}}')">
+    <button  onClick="modifierContent({{$content->id}},'{{$content->titre}}', '{{$content->description}}','{{$content->datePublication}}','{{$content->type}}','{{$content->genre}}')">
         modifier</button>
-        <a href="{{ route('content.details', ['id' => $content->id]) }}" class="bg-black text-white rounded-md w-[80px] h-[30px] inline-block text-center">
+        <a href="{{ route('content.details', ['id' => $content->id]) }}" >
     Lire
 </a>
 @if($content->type == "anime" && !isset($content->anime))
-<a href="{{ route('anime.create', ['content_id' => $content->id]) }}" class="bg-black text-white rounded-md w-[260px] h-[30px] inline-block text-center">
+<a href="{{ route('anime.create', ['content_id' => $content->id]) }}" >
 ajouter ton anime content
 </a>
 @elseif($content->type == "manga" && !isset($content->manga))
-<a href="{{ route('manga.create', ['content_id' => $content->id]) }}" class="bg-black text-white rounded-md w-[260px] h-[30px] inline-block text-center">
+<a href="{{ route('manga.create', ['content_id' => $content->id]) }}" >
 ajouter ton manga content
 </a>
 @endif
-<button class="bg-gray-600 text-white rounded-md w-[60px] h-[30px]" onClick="supprimerContent({{$content->id}})">
+<button onClick="supprimerContent({{$content->id}})">
         supprimer</button>
     @endforeach
     @else
-    <div>y a rien usque la </div>
+    <p>y a rien usque la </p>
     @endif
-</div>
+</p>
 
 
 <form action="{{ route('content.update') }}" method="POST" class="hidden" id="modifierform">
@@ -86,7 +84,7 @@ ajouter ton manga content
 <form action="{{ route('content.delete') }}" method="POST" class="hidden" id="deleteform">
 @csrf
 <input type="hidden" id="DID" name="DID">
-<div>tu es sure que vous voulez supprimer ce contenu ? </div>
+<p>tu es sure que vous voulez supprimer ce contenu ? </p>
 <button type="submit">Oui</button>
 <button >Non</button>
 </form>
@@ -108,3 +106,4 @@ ajouter ton manga content
 
 
 </script>
+

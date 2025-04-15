@@ -10,6 +10,8 @@ use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BibliothequeController;
+use App\Http\Controllers\CommentaireController;
+use App\Http\Controllers\NotationController;
 
 
 Route::get('/', function () {
@@ -76,7 +78,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-
+    
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.delete');
@@ -90,4 +92,8 @@ Route::post('/bibliotheque/ajouter/{content_id}', [BibliothequeController::class
 Route::delete('/bibliotheque/retirer/{content_id}', [BibliothequeController::class, 'retirer'])->name('bibliotheque.retirer');
 
 
+Route::post('/commentaire/store', [CommentaireController::class, 'store'])->name('commentaire.store');
 
+
+Route::post('notation/store/{contentId}', [NotationController::class, 'store'])->name('notation.store');
+Route::get('notation/average/{contentId}', [NotationController::class, 'getAverageRating'])->name('notation.average');

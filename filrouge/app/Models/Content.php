@@ -28,7 +28,7 @@ class Content extends Model
 
     public function notations()
     {
-        return $this->hasMany(Notations::class);
+        return $this->hasMany(Notation::class);
     }
 
     public function bibliotheques()
