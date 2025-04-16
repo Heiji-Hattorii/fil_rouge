@@ -12,6 +12,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BibliothequeController;
 use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\NotationController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\MessageController;
+
 
 
 Route::get('/', function () {
@@ -20,10 +23,10 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-Route::post('/content',[ContentController::class,'store']);
-Route::post('/content/update',[ContentController::class,'update'])->name('content.update');
-Route::get('/content',[BibliothequeController::class,'myindex'])->name('content.index');
-Route::post('/content/delete',[ContentController::class,'destroy'])->name('content.delete');
+Route::post('/content', [ContentController::class, 'store']);
+Route::post('/content/update', [ContentController::class, 'update'])->name('content.update');
+Route::get('/content', [BibliothequeController::class, 'myindex'])->name('content.index');
+Route::post('/content/delete', [ContentController::class, 'destroy'])->name('content.delete');
 Route::get('/content/{id}/details', [ContentController::class, 'show'])->name('content.details');
 
 
@@ -78,7 +81,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    
+
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/delete', [ProfileController::class, 'destroy'])->name('profile.delete');
@@ -97,3 +100,14 @@ Route::post('/commentaire/store', [CommentaireController::class, 'store'])->name
 
 Route::post('notation/store/{contentId}', [NotationController::class, 'store'])->name('notation.store');
 Route::get('notation/average/{contentId}', [NotationController::class, 'getAverageRating'])->name('notation.average');
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('rooms', RoomController::class);
+
+    Route::post('/rooms/{room}/join', [RoomController::class, 'join'])->name('rooms.join');
+
+    Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
+    Route::put('messages/{message}', [MessageController::class, 'update'])->name('messages.update');
+    Route::delete('messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy');
+
+});

@@ -89,6 +89,6 @@
             alert('Veuillez sélectionner une note entre 1 et 5.');
             return false; 
         }
-        return true; 
+        return true;
     }
 </script>
