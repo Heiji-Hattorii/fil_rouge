@@ -104,6 +104,7 @@
     const channel = pusher.subscribe('my-channel');
 
     channel.bind('chatEvent', (data) => {
+        if (parseInt(data.user_id) === {{ auth()->id() }}) return;
         console.log(data); 
         const messageList = document.getElementById('message-list');
 
@@ -116,6 +117,7 @@
             `;
 
             messageList.appendChild(newMessage); 
+        
     });
 
 

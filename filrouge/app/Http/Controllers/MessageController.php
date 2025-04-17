@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
-    // App/Http/Controllers/MessageController.php
 public function store(Request $request)
 {
     $request->validate([
@@ -24,6 +23,7 @@ public function store(Request $request)
         'message' => $message->message,
         'user' => $message->user->name, 
         'room_id' => $message->room_id,
+        'user_id' => $message->user->id,
         'timestamp' => $message->created_at->toDateTimeString(),
     ]));
     // return response(null, 200);

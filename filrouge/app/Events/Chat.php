@@ -18,6 +18,8 @@ class Chat implements ShouldBroadcast
     public $room_id;
     public $timestamp;
     public $action; 
+    public $user_id;
+
 
     public function __construct($data)
     {
@@ -25,6 +27,7 @@ class Chat implements ShouldBroadcast
         $this->message = $data['message']; 
         $this->user = $data['user']; 
         $this->room_id = $data['room_id'];
+        $this->user_id = $data['user_id'];
         $this->timestamp = $data['timestamp']; 
     }
 
