@@ -15,6 +15,7 @@ use App\Http\Controllers\NotationController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\QuizController;
+use App\Http\Controllers\QuestionController;
 
 
 
@@ -114,9 +115,12 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('content/{content}')->group(function () {
         Route::get('quiz', [QuizController::class, 'index'])->name('content.quiz.index');
         Route::post('quiz', [QuizController::class, 'store'])->name('content.quiz.store');
+    
     });
+    
     
     Route::put('/quizzes/{quiz}', [QuizController::class, 'update'])->name('quizzes.update');
     Route::delete('/quizzes/{quiz}', [QuizController::class, 'destroy'])->name('quizzes.destroy');
+    Route::resource('quiz.question', QuestionController::class);
 
 });

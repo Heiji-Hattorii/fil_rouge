@@ -13,7 +13,11 @@ class QuizController extends Controller
     public function index(Content $content)
     {
         $quiz = $content->quiz;
-        return view('quizzes.index', compact( 'quiz','content'));
+        if ($quiz) {
+            $questions = $quiz->questions;
+        } else {
+            $questions = []; 
+        }        return view('quizzes.index', compact('quiz', 'content', 'questions'));
     }
 
     public function store(Request $request, Content $content)
