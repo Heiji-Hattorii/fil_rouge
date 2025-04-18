@@ -9,7 +9,7 @@
         <div id="createModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
             <div class="bg-white rounded-lg w-full max-w-md shadow-lg p-6">
                 <h2 class="text-lg font-semibold mb-4">Créer un quiz</h2>
-                <form method="POST" action="{{ route('contents.quiz.store', $content) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('content.quiz.store', $content) }}" enctype="multipart/form-data">
                     @csrf
                     <input type="text" name="titre" class="w-full border mb-2 p-2 rounded" placeholder="Titre" required>
                     <textarea name="description" class="w-full border mb-2 p-2 rounded" placeholder="Description" required></textarea>

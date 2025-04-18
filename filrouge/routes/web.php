@@ -111,9 +111,9 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/messages/{message}', [MessageController::class, 'update'])->name('messages.update');
     Route::delete('/messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy');
 
-    Route::prefix('contents/{content}')->group(function () {
-        Route::get('quiz', [QuizController::class, 'index'])->name('contents.quiz.index');
-        Route::post('quiz', [QuizController::class, 'store'])->name('contents.quiz.store');
+    Route::prefix('content/{content}')->group(function () {
+        Route::get('quiz', [QuizController::class, 'index'])->name('content.quiz.index');
+        Route::post('quiz', [QuizController::class, 'store'])->name('content.quiz.store');
     });
     
     Route::put('/quizzes/{quiz}', [QuizController::class, 'update'])->name('quizzes.update');

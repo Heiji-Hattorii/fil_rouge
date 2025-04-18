@@ -35,7 +35,7 @@ class QuizController extends Controller
             'photo' => 'quiz/' . $imageName,
         ]);
 
-        return redirect()->route('contents.quiz.index', $content)->with('success', 'Quiz créé avec succès.');
+        return redirect()->route('content.quiz.index', $content)->with('success', 'Quiz créé avec succès.');
     }
 
     public function update(Request $request, Quiz $quiz)
@@ -62,7 +62,7 @@ class QuizController extends Controller
 
         $quiz->update($data);
 
-        return redirect()->route('contents.quiz.index', $quiz->content)->with('success', 'Quiz modifié avec succès.');
+        return redirect()->route('content.quiz.index', $quiz->content)->with('success', 'Quiz modifié avec succès.');
     }
 
     public function destroy(Quiz $quiz)
@@ -74,7 +74,7 @@ class QuizController extends Controller
 
         $quiz->delete();
 
-        return redirect()->route('contents.quiz.index', $quiz->content)->with('success', 'Quiz supprimé.');
+        return redirect()->route('content.quiz.index', $quiz->content)->with('success', 'Quiz supprimé.');
     }
 
 }

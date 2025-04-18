@@ -48,7 +48,7 @@
                     onClick="modifierContent({{$content->id}},'{{$content->titre}}', '{{$content->description}}','{{$content->datePublication}}','{{$content->type}}','{{$content->genre}}')">
                     modifier</button>
 
-                <a href="{{ route('contents.quiz.index', ['content' => $content->id]) }}">
+                <a href="{{ route('content.quiz.index', ['content' => $content->id]) }}">
                     Quiz
                 </a>
                 <a href="{{ route('content.details', ['id' => $content->id]) }}">
