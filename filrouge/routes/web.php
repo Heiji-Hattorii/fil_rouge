@@ -14,6 +14,7 @@ use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\NotationController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\QuizController;
 
 
 
@@ -109,6 +110,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/messages', [MessageController::class, 'store'])->name('messages.store');
     Route::put('/messages/{message}', [MessageController::class, 'update'])->name('messages.update');
     Route::delete('/messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy');
+
+    Route::prefix('contents/{content}')->group(function () {
+        Route::get('quiz', [QuizController::class, 'index'])->name('contents.quiz.index');
+        Route::post('quiz', [QuizController::class, 'store'])->name('contents.quiz.store');
+    });
     
+    Route::put('/quizzes/{quiz}', [QuizController::class, 'update'])->name('quizzes.update');
+    Route::delete('/quizzes/{quiz}', [QuizController::class, 'destroy'])->name('quizzes.destroy');
 
 });
