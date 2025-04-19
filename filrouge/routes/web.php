@@ -16,6 +16,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\CategoryController;
 
 
 
@@ -115,14 +116,21 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('content/{content}')->group(function () {
         Route::get('quiz', [QuizController::class, 'index'])->name('content.quiz.index');
         Route::post('quiz', [QuizController::class, 'store'])->name('content.quiz.store');
-    
+
     });
-    
-    
+
+
     Route::put('/quizzes/{quiz}', [QuizController::class, 'update'])->name('quizzes.update');
     Route::delete('/quizzes/{quiz}', [QuizController::class, 'destroy'])->name('quizzes.destroy');
     Route::resource('quiz.question', QuestionController::class);
     Route::get('/quiz/{quiz}/play', [QuizController::class, 'play'])->name('quiz.play');
+
+
+
+    Route::get('/categories', [CategoryController::class, 'index'])->name('category.index');
+    Route::post('/categories', [CategoryController::class, 'store'])->name('category.store');
+    Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('category.update');
+    Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
 
 });

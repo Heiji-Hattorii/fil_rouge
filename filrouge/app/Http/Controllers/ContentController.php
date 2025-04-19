@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Content;
-
+use App\Models\Category;
 class ContentController extends Controller
 {
     public function index(){
-        $allcontent = Content::all();
-        return view('content.index', compact('allcontent'));
+        $contents = Content::all();
+        $categories = Category::all();
+        return view('content.index', compact('contents', 'categories'));
     }
 
     public function store(Request $request){
@@ -17,7 +18,7 @@ class ContentController extends Controller
             'titre' => 'required|string',
             'description' => 'required|string',
             'type' => 'required|in:anime,manga',
-            'genre' => 'required|string',
+            'category_id' => 'required|exists:categories,id',
             'datePublication' => 'required|date',
         ]);
 
@@ -34,7 +35,9 @@ class ContentController extends Controller
 
 
     public function show($id){
-        $content = Content::findOrFail($id);
+        $content = Content::with('category')->findOrFail($id);
+
+        // $content = Content::findOrFail($id);
         return view('content.details', compact('content'));}
 
     
@@ -44,14 +47,14 @@ class ContentController extends Controller
             'Mtitre' => 'required|string',
             'Mdescription' => 'required|string',
             'Mtype' => 'required|in:anime,manga',
-            'Mgenre' => 'required|string',
+            'Mcategory_id' => 'required|exists:categories,id',
             'MdatePublication' => 'required|date',
         ]);
         $content->update([
             'titre' => $request->Mtitre,
             'description' => $request->Mdescription,
             'type' => $request->Mtype,
-            'genre' => $request->Mgenre,
+            'category_id' => $request->Mcategory_id,
             'datePublication' =>$request->MdatePublication,
         ]);
         return redirect()->route('content.index');}

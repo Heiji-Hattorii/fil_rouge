@@ -5,6 +5,7 @@ use App\Models\Bibliotheque;
 use App\Models\Content;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
 
 class BibliothequeController extends Controller
 {
@@ -19,8 +20,9 @@ class BibliothequeController extends Controller
     public function myindex()
     {
         $contents = Content::all();
+        $categories = Category::all();
         $bibliothequeIds = Bibliotheque::where('user_id', auth()->id())->pluck('content_id')->toArray();
-        return view('content.index', compact('contents', 'bibliothequeIds'));
+        return view('content.index', compact('contents', 'bibliothequeIds','categories'));
     }
     
 

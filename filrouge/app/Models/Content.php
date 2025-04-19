@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,8 +10,9 @@ class Content extends Model
     use HasFactory;
 
     protected $fillable = [
-        'titre', 'description', 'type', 'genre', 'datePublication',
+        'titre', 'description', 'type', 'category_id', 'datePublication',
     ];
+
     public function anime()
     {
         return $this->hasOne(Anime::class);
@@ -35,9 +37,14 @@ class Content extends Model
     {
         return $this->hasMany(Bibliotheque::class);
     }
-    public function quiz()
-{
-    return $this->hasOne(Quiz::class);
-}
 
+    public function quiz()
+    {
+        return $this->hasOne(Quiz::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

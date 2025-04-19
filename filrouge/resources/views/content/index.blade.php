@@ -5,7 +5,11 @@
     <input type="text" name="titre" placeholder="titre">
     <input type="text" name="description" placeholder="description">
     <input type="date" name="datePublication" placeholder="datePublication">
-    <input type="text" name="genre" placeholder="genre">
+    <select name="category_id" required>
+    @foreach($categories as $category)
+        <option value="{{ $category->id }}">{{ $category->nom }}</option>
+    @endforeach
+</select>
     <select name="type" id="type">
         <option value="anime">A</option>
         <option value="manga">manga</option>
@@ -19,7 +23,7 @@
                 <p>le description est {{$content->description}}</p>
                 <p>la date est {{$content->datePublication}}</p>
                 <p>le type est {{$content->type}}</p>
-                <p>le genre est {{$content->genre}}</p>
+                <p>la catégorie est {{$content->category->nom}}</p>
 
                 @if(in_array($content->id, $bibliothequeIds))
                     <form action="{{ route('bibliotheque.retirer', ['content_id' => $content->id]) }}" method="POST">
@@ -45,7 +49,8 @@
 
 
                 <button
-                    onClick="modifierContent({{$content->id}},'{{$content->titre}}', '{{$content->description}}','{{$content->datePublication}}','{{$content->type}}','{{$content->genre}}')">
+                onClick="modifierContent({{$content->id}},'{{$content->titre}}', '{{$content->description}}','{{$content->datePublication}}','{{$content->type}}', {{$content->category_id}})"
+                >
                     modifier</button>
 
                 <a href="{{ route('content.quiz.index', ['content' => $content->id]) }}">
@@ -78,7 +83,11 @@
     <input type="text" id="Mtitre" name="Mtitre" placeholder="titre">
     <input type="text" id="Mdescription" name="Mdescription" placeholder="description">
     <input type="date" id="MdatePublication" name="MdatePublication" placeholder="datePublication">
-    <input type="text" id="Mgenre" name="Mgenre" placeholder="genre">
+    <select name="Mcategory_id" id="Mcategory_id" required>
+    @foreach($categories as $category)
+        <option value="{{ $category->id }}">{{ $category->nom }}</option>
+    @endforeach
+</select>
     <select name="Mtype" id="Mtype">
         <option value="anime">Anime</option>
         <option value="manga">manga</option>
@@ -94,15 +103,16 @@
     <button>Non</button>
 </form>
 <script>
-    function modifierContent(k, a, b, c, d, e) {
-        document.getElementById("modifierform").classList.remove("hidden");
-        document.getElementById("MID").value = k;
-        document.getElementById("Mtitre").value = a;
-        document.getElementById("Mdescription").value = b;
-        document.getElementById("MdatePublication").value = c;
-        document.getElementById("Mgenre").value = e;
-        document.getElementById("Mtype").value = d;
-    }
+function modifierContent(k, a, b, c, d, categoryId) {
+    document.getElementById("modifierform").classList.remove("hidden");
+    document.getElementById("MID").value = k;
+    document.getElementById("Mtitre").value = a;
+    document.getElementById("Mdescription").value = b;
+    document.getElementById("MdatePublication").value = c;
+    document.getElementById("Mtype").value = d;
+    document.getElementById("Mcategory_id").value = categoryId;
+}
+
     function supprimerContent(id) {
         document.getElementById("deleteform").classList.remove("hidden");
         document.getElementById("DID").value = id;

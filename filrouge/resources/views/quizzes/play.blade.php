@@ -54,7 +54,6 @@
                 const selected = btn.dataset.reponse?.trim().toLowerCase();
                 currentQuestion++;
 
-                // Marquer la bonne réponse
                 buttons.forEach(b => {
                     const rep = b.dataset.reponse?.trim().toLowerCase();
                     if (rep === correctAnswer) {
@@ -62,7 +61,6 @@
                     }
                 });
 
-                // Si erreur
                 if (selected !== correctAnswer) {
                     btn.classList.add('bg-red-200', 'border-red-500', 'text-red-800');
                 } else {
@@ -71,7 +69,6 @@
                     block.classList.add('border-green-400', 'bg-green-50');
                 }
 
-                // Verrouiller la question
                 block.classList.add('done');
                 buttons.forEach(b => b.disabled = true);
 
