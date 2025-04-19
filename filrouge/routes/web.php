@@ -122,5 +122,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/quizzes/{quiz}', [QuizController::class, 'update'])->name('quizzes.update');
     Route::delete('/quizzes/{quiz}', [QuizController::class, 'destroy'])->name('quizzes.destroy');
     Route::resource('quiz.question', QuestionController::class);
+    Route::get('/quiz/{quiz}/play', [QuizController::class, 'play'])->name('quiz.play');
+
 
 });

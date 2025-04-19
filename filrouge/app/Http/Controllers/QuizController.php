@@ -81,4 +81,12 @@ class QuizController extends Controller
         return redirect()->route('content.quiz.index', $quiz->content)->with('success', 'Quiz supprimé.');
     }
 
+    public function play(Quiz $quiz)
+{
+    $questions = $quiz->questions;
+
+    return view('quizzes.play', compact('quiz', 'questions'));
+}
+
+
 }
