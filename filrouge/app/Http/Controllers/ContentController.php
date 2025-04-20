@@ -5,15 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Content;
 use App\Models\Category;
+use App\Models\Bibliotheque;
 class ContentController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $contents = Content::all();
         $categories = Category::all();
         return view('content.index', compact('contents', 'categories'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $validated = $request->validate([
             'titre' => 'required|string',
             'description' => 'required|string',
@@ -24,24 +27,26 @@ class ContentController extends Controller
 
         $content = Content::create($validated);
         // return redirect()->route('content.index');
-        
+
         if ($content->type === 'anime') {
             return redirect()->route('anime.create', ['content_id' => $content->id]);
-        } 
-        else {
+        } else {
             return redirect()->route('manga.create', ['content_id' => $content->id]);
         }
     }
 
 
-    public function show($id){
+    public function show($id)
+    {
         $content = Content::with('category')->findOrFail($id);
 
         // $content = Content::findOrFail($id);
-        return view('content.details', compact('content'));}
+        return view('content.details', compact('content'));
+    }
 
-    
-    public function update(Request $request){
+
+    public function update(Request $request)
+    {
         $content = Content::findOrFail($request->MID);
         $request->validate([
             'Mtitre' => 'required|string',
@@ -55,13 +60,36 @@ class ContentController extends Controller
             'description' => $request->Mdescription,
             'type' => $request->Mtype,
             'category_id' => $request->Mcategory_id,
-            'datePublication' =>$request->MdatePublication,
+            'datePublication' => $request->MdatePublication,
         ]);
-        return redirect()->route('content.index');}
+        return redirect()->route('content.index');
+    }
 
 
-    public function destroy(Request $request){
+    public function destroy(Request $request)
+    {
         $content = Content::findOrFail($request->DID);
         $content->delete();
-        return redirect()->route('content.index');}
+        return redirect()->route('content.index');
+    }
+
+    public function recommandations()
+    {
+        $user = auth()->user();
+
+        $categoryIds = Bibliotheque::where('user_id', $user->id)
+            ->with('content')
+            ->get()
+            ->pluck('content.category_id')
+            ->unique();
+
+        $alreadyAddedIds = Bibliotheque::where('user_id', $user->id)->pluck('content_id');
+
+        $recommandations = Content::whereIn('category_id', $categoryIds)
+            ->whereNotIn('id', $alreadyAddedIds)
+            ->get();
+
+        return view('content.recommandations', compact('recommandations'));
+    }
+
 }

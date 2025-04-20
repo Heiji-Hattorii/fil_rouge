@@ -132,5 +132,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('category.update');
     Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
+    Route::get('/recommandations', [ContentController::class, 'recommandations'])->name('content.recommandations');
 
 });
