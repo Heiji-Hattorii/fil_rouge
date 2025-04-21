@@ -12,7 +12,13 @@ class ContentController extends Controller
     {
         $contents = Content::all();
         $categories = Category::all();
-        return view('content.index', compact('contents', 'categories'));
+        $bibliothequeIds = [];
+
+        if (auth()->check()) {
+            $user = auth()->user();
+            $bibliothequeIds = $user->bibliotheques->pluck('content_id')->toArray();
+        }
+        return view('content.index', compact('contents', 'categories','bibliothequeIds'));
     }
 
     public function store(Request $request)
@@ -91,5 +97,35 @@ class ContentController extends Controller
 
         return view('content.recommandations', compact('recommandations'));
     }
+
+
+    public function filter(Request $request)
+    {
+        $query = Content::query();
+    
+        if ($request->filled('titre')) {
+            $query->where('titre', 'like', '%' . $request->titre . '%');
+        }
+    
+        if ($request->filled('category_id')) {
+            $query->where('category_id', $request->category_id);
+        }
+    
+        if ($request->filled('annee')) {
+            $query->whereYear('datePublication', $request->annee);
+        }
+        $contents = $query->get();
+        $categories = Category::all();
+        $bibliothequeIds = [];
+    
+        if (auth()->check()) {
+            $user = auth()->user();
+            $bibliothequeIds = $user->bibliotheques->pluck('content_id')->toArray();
+        }
+    
+        return view('content.index', compact('contents', 'categories', 'bibliothequeIds'));
+    }
+        
+
 
 }

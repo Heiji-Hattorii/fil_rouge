@@ -28,7 +28,7 @@ Route::get('/dashboard', function () {
 })->name('dashboard');
 Route::post('/content', [ContentController::class, 'store']);
 Route::post('/content/update', [ContentController::class, 'update'])->name('content.update');
-Route::get('/content', [BibliothequeController::class, 'myindex'])->name('content.index');
+Route::get('/content', [ContentController::class, 'index'])->name('content.index');
 Route::post('/content/delete', [ContentController::class, 'destroy'])->name('content.delete');
 Route::get('/content/{id}/details', [ContentController::class, 'show'])->name('content.details');
 
@@ -133,5 +133,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
     Route::get('/recommandations', [ContentController::class, 'recommandations'])->name('content.recommandations');
+
+    Route::get('/content/filter', [ContentController::class, 'filter'])->name('content.filter');
+
 
 });

@@ -1,4 +1,31 @@
 <script src="https://cdn.tailwindcss.com"></script>
+<form method="GET" action="{{ route('content.filter') }}">
+    <input type="text" name="titre" placeholder="Titre" value="{{ request('titre') }}">
+
+    <select name="category_id">
+        <option value="">-- Catégorie --</option>
+        @foreach($categories as $category)
+            <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
+                {{ $category->nom }}
+            </option>
+        @endforeach
+    </select>
+
+    <input type="number" name="annee" placeholder="Année" value="{{ request('annee') }}">
+
+    <button type="submit">Filtrer</button>
+</form>
+<!-- 
+@foreach ($contents as $content)
+    <div>
+        <h3>{{ $content->titre }}</h3>
+        <p>{{ $content->description }}</p>
+        <p>Type: {{ $content->type }}</p>
+        <p>Catégorie: {{ $content->category->nom ?? 'Aucune' }}</p>
+        <p>Date de publication: {{ \Carbon\Carbon::parse($content->datePublication)->format('d/m/Y') }}</p>
+    </div>
+@endforeach -->
+
 
 <form action="" method="POST">
     @csrf

@@ -13,16 +13,8 @@ class BibliothequeController extends Controller
     {
         $user = Auth::user();
         $bibliotheques = $user->bibliotheques()->with('content')->get();
-        $contents = Content::all();  
-    
-        return view('bibliotheques.index', compact('bibliotheques', 'contents'));  
-    }
-    public function myindex()
-    {
         $contents = Content::all();
-        $categories = Category::all();
-        $bibliothequeIds = Bibliotheque::where('user_id', auth()->id())->pluck('content_id')->toArray();
-        return view('content.index', compact('contents', 'bibliothequeIds','categories'));
+        return view('bibliotheques.index', compact('bibliotheques', 'contents'));  
     }
     
 
