@@ -16,38 +16,26 @@ class ResetPasswordMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public $name;
+    public $newPassword;
+
+    public function __construct($name, $newPassword)
     {
-        //
+        $this->name = $name;
+        $this->newPassword = $newPassword;
     }
 
     /**
      * Get the message envelope.
      */
-    public function envelope(): Envelope
+    public function build()
     {
-        return new Envelope(
-            subject: 'Reset Password Mail',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
-    public function attachments(): array
-    {
-        return [];
+        return $this->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
+                    ->subject('Password _ Hasu no Haru ')
+                    ->view('auth.reset-password')
+                    ->with([
+                        'name' => $this->name,
+                        'newPassword' => $this->newPassword,
+                    ]);
     }
 }

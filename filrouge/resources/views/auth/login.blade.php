@@ -8,3 +8,7 @@
     
     <button type="submit">Se connecter</button>
 </form>
+
+<div style="margin: 8px 0;">
+    <a href="{{ route('password.request') }}">Mot de passe oublié ?</a>
+</div>

@@ -6,7 +6,7 @@
     <p style="color: red">{{ $errors->first() }}</p>
 @endif
 
-<form method="POST" action="{{ route('password.email') }}">
+<form method="POST" action="{{ route('password.custom.email') }}">
     @csrf
     <label for="email">Adresse e-mail :</label>
     <input type="email" name="email" required>
