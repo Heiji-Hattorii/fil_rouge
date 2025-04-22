@@ -17,6 +17,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 
 
 
@@ -135,6 +136,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/recommandations', [ContentController::class, 'recommandations'])->name('content.recommandations');
 
     Route::get('/content/filter', [ContentController::class, 'filter'])->name('content.filter');
+
+
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::post('/users', [UserController::class, 'store'])->name('users.store');
+    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
 
 
 });
