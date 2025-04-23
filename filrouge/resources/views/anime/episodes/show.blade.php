@@ -9,6 +9,13 @@
     <a href="{{ route('anime.episodes.index', $episode->anime_id) }}" class="btn btn-secondary">Retour</a>
 </div>
 
+
+<form method="POST" action="{{ $dejaAjoute ? route('episode.removeView', [$episode->anime_id, $episode->id]) : route('episode.addView', [$episode->anime_id, $episode->id]) }}">
+    @csrf
+    <button type="submit" class="btn btn-primary">
+        {{ $dejaAjoute ? 'Retirer de mes vues' : 'Ajouter à mes vues' }}
+    </button>
+</form>
 <div class="mt-8">
     <h2 class="text-2xl font-bold mb-4">Commentaires</h2>
 

@@ -144,6 +144,14 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
 
+Route::post('/chapitres/{id}/add-view', [ChapitreController::class, 'addView'])->name('chapitre.addView');
+Route::post('/chapitre/{id}/removeView', [ChapitreController::class, 'removeView'])->name('chapitre.removeView');
+
+Route::post('/anime/{anime_id}/episodes/{id}/add-view', [EpisodeController::class, 'addView'])->name('episode.addView');
+Route::post('/anime/{anime_id}/episodes/{id}/removeView', [EpisodeController::class, 'removeView'])->name('episode.removeView');
+
+
+
 
 });
 Route::get('/forgot-password', function () {

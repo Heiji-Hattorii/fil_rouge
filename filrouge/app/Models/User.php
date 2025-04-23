@@ -55,4 +55,8 @@ class User extends Authenticatable
     return $this->hasMany(Bibliotheque::class);
 }
 
+public function vues()
+{
+    return $this->belongsToMany(Chapitre::class, 'views', 'user_id', 'chapitre_id');
+}
 }

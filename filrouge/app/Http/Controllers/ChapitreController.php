@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Chapitre;
 use App\Models\Manga;
 use App\Models\Commentaire;
+use App\Models\View;
+use Illuminate\Support\Facades\Auth;
 
 class ChapitreController extends Controller
 {
@@ -31,16 +33,21 @@ class ChapitreController extends Controller
         Chapitre::create($request->all());
 
         return redirect()->route('manga.chapitres.index', ['manga_id' => $request->manga_id])
-                         ->with('success', 'Chapitre ajouté avec succès.');
+            ->with('success', 'Chapitre ajouté avec succès.');
     }
 
     public function show($id)
     {
         $chapitre = Chapitre::findOrFail($id);
         $comments = Commentaire::where('chapitre_id', $id)->orderBy('created_at', 'desc')->get();
-        return view('manga.chapitres.show', compact('chapitre', 'comments'));
+
+        $deja_ajoute = false;
+        if (auth()->check()) {
+            $deja_ajoute = auth()->user()->vues()->where('chapitre_id', $id)->exists();
+        }
+
+        return view('manga.chapitres.show', compact('chapitre', 'comments', 'deja_ajoute'));
     }
-    
 
     public function edit($id)
     {
@@ -59,7 +66,7 @@ class ChapitreController extends Controller
         $chapitre->update($request->all());
 
         return redirect()->route('manga.chapitres.index', ['manga_id' => $chapitre->manga_id])
-                         ->with('success', 'Chapitre mis à jour.');
+            ->with('success', 'Chapitre mis à jour.');
     }
 
     public function destroy($id)
@@ -69,6 +76,39 @@ class ChapitreController extends Controller
         $chapitre->delete();
 
         return redirect()->route('manga.chapitres.index', ['manga_id' => $manga_id])
-                         ->with('success', 'Chapitre supprimé.');
+            ->with('success', 'Chapitre supprimé.');
     }
+    public function addView($id)
+    {
+        $chapitre = Chapitre::findOrFail($id);
+        if (Auth::check()) {
+            View::firstOrCreate([
+                'user_id' => Auth::id(),
+                'chapitre_id' => $chapitre->id,
+            ]);
+        }
+        return redirect()->route('manga.chapitres.show', $chapitre->id);
+    }
+
+    public function removeView($id)
+    {
+        $chapitre = Chapitre::find($id);
+
+        if (!$chapitre) {
+            return redirect()->back()->with('error', 'Chapitre introuvable');
+        }
+
+        $view = View::where('user_id', auth()->id())
+            ->where('chapitre_id', $chapitre->id)
+            ->first();
+
+        if ($view) {
+            $view->delete();
+            return redirect()->route('manga.chapitres.show', $chapitre->id)->with('success', 'Chapitre retiré de vos vues');
+        }
+
+        return redirect()->route('manga.chapitres.show', $chapitre->id)->with('error', 'Chapitre non trouvé dans vos vues');
+    }
+
+
 }
