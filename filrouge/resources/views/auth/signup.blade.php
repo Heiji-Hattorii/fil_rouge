@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnimeManga - Inscription</title>
+    <title>蓮の花 - Inscription</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -68,14 +68,14 @@
 <body class="bg-[#f9f9ff]">
     <div class="min-h-screen flex flex-col md:flex-row">
         <div
-            class="md:w-2/5 bg-gradient-to-br from-primary/90 to-secondary/90 relative overflow-hidden flex items-center justify-center p-6 md:p-0">
+            class="md:w-2/5 bg-gradient-to-br from-#a82974/90 to-#a82974/90 relative overflow-hidden flex items-center justify-center p-6 md:p-0">
             <div class="absolute inset-0"
                 style="background-image: url('{{ asset('img/signup.jpg') }}'); background-size: cover; background-position: center;">
             </div>
 
             <div class="absolute inset-0 bg-purple-800 opacity-60"></div>
             <div class="relative z-10 text-white text-center max-w-md">
-                <h1 class="logo-font text-4xl md:text-5xl mb-4">AnimeManga</h1>
+                <h1 class="logo-font text-4xl md:text-5xl mb-4">蓮の花</h1>
                 <h2 class="title-font text-3xl md:text-4xl mb-6">L'UNIVERS DES ANIMES ET MANGAS</h2>
                 <p class="mb-8 text-lg">Rejoignez notre communauté passionnée et partagez votre amour pour les animes et
                     mangas avec des milliers de fans.</p>
@@ -207,8 +207,8 @@
                                     <div
                                         class="bg-gray-50 border border-gray-300 border-dashed rounded-lg p-4 text-center cursor-pointer hover:bg-gray-100 transition-all">
                                         <div
-                                            class="w-12 h-12 mx-auto flex items-center justify-center bg-primary/10 rounded-full mb-2">
-                                            <i class="ri-user-add-line text-primary text-xl"></i>
+                                            class="w-12 h-12 mx-auto flex items-center justify-center bg-#a82974/10 rounded-full mb-2">
+                                            <i class="ri-user-add-line text-#a82974 text-xl"></i>
                                         </div>
                                         <p class="text-sm text-gray-600">Cliquez pour sélectionner une image</p>
                                         <p class="text-xs text-gray-500 mt-1">JPG, PNG ou GIF (max. 2MB)</p>
@@ -228,8 +228,8 @@
                                     <div
                                         class="bg-gray-50 border border-gray-300 border-dashed rounded-lg p-4 text-center cursor-pointer hover:bg-gray-100 transition-all">
                                         <div
-                                            class="w-12 h-12 mx-auto flex items-center justify-center bg-primary/10 rounded-full mb-2">
-                                            <i class="ri-image-add-line text-primary text-xl"></i>
+                                            class="w-12 h-12 mx-auto flex items-center justify-center bg-#a82974/10 rounded-full mb-2">
+                                            <i class="ri-image-add-line text-#a82974 text-xl"></i>
                                         </div>
                                         <p class="text-sm text-gray-600">Cliquez pour sélectionner une image</p>
                                         <p class="text-xs text-gray-500 mt-1">JPG, PNG ou GIF (max. 2MB)</p>
@@ -247,23 +247,23 @@
                     <div class="flex items-start mt-6">
                         <div class="flex items-center h-5">
                             <input id="terms" name="terms" type="checkbox"
-                                class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded" required>
+                                class="h-4 w-4 text-#a82974 focus:ring-#a82974 border-gray-300 rounded" required>
                         </div>
                         <div class="ml-3 text-sm">
                             <label for="terms" class="font-medium text-gray-700">J'accepte les <a href="#"
-                                    class="text-primary hover:underline">conditions d'utilisation</a> et la <a href="#"
-                                    class="text-primary hover:underline">politique de confidentialité</a></label>
+                                    class="text-#a82974 hover:underline">conditions d'utilisation</a> et la <a href="#"
+                                    class="text-#a82974 hover:underline">politique de confidentialité</a></label>
                         </div>
                     </div>
                     <div class="flex justify-center">
                         <button type="submit"
-                            class="w-full md:w-1/2 bg-violet-600 hover:bg-primary/90 text-white font-bold py-3 px-6 !rounded-button shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 whitespace-nowrap">
+                            class="w-full md:w-1/2 bg-[#a82974] hover:bg-#a82974/90 text-white font-bold py-3 px-6 !rounded-button shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 whitespace-nowrap">
                             S'inscrire
                         </button>
                     </div>
                     <div class="text-center mt-6">
                         <p class="text-gray-600">Déjà membre ? <a href="{{ route('login') }}"
-                                class="text-primary font-medium hover:underline">Connectez-vous</a></p>
+                                class="text-#a82974 font-medium hover:underline">Connectez-vous</a></p>
                     </div>
                 </form>
             </div>

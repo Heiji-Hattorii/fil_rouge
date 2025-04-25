@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AnimeManga - Connexion</title>
+    <title>蓮の花 - Connexion</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -34,7 +34,7 @@
         }
 
         .form-input:focus {
-            border-color: #8A2BE2;
+            border-color: #a82974;
             box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
         }
     </style>
@@ -43,7 +43,7 @@
 <body>
     <div class="min-h-screen flex flex-col md:flex-row"> 
         <div
-            class="md:w-2/5 bg-gradient-to-br from-primary/90 to-secondary/90 relative overflow-hidden flex items-center justify-center p-6 md:p-0">
+            class="md:w-2/5 bg-gradient-to-br from-[#a82974]/90 to-[#a82974]/90 relative overflow-hidden flex items-center justify-center p-6 md:p-0">
             <div class="absolute inset-0"
                 style="background-image: url('{{ asset('img/signup.jpg') }}'); background-size: cover; background-position: center;">
             </div>
@@ -76,7 +76,7 @@
             <div class="w-full max-w-md">
                 <div class="text-center mb-12">
                     <h2 class="title-font text-3xl text-gray-800 mb-2">CONNEXION</h2>
-                    <p class="text-gray-600">Accédez à votre compte AnimeManga</p>
+                    <p class="text-gray-600">Accédez à votre compte 蓮の花</p>
                 </div>
                 <form action="{{ route('login') }}" method="POST" class="space-y-6"> @csrf <div class="space-y-4">
                         <div class="space-y-2"> <label for="email"
@@ -102,13 +102,13 @@
                         </div>
                         <div class="flex items-center justify-between">
                             <div class="flex items-center"> <input id="remember" name="remember" type="checkbox"
-                                    class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"> <label
+                                    class="h-4 w-4 text-[#a82974] focus:ring-[#a82974] border-gray-300 rounded"> <label
                                     for="remember" class="ml-2 block text-sm text-gray-700">Se souvenir de moi</label>
-                            </div> <a href="{{ route('password.request') }}" class="text-sm font-medium text-primary hover:text-primary/80">Mot de
+                            </div> <a href="{{ route('password.request') }}" class="text-sm font-medium text-[#a82974] hover:text-[#a82974]/80">Mot de
                                 passe oublié ?</a>
                         </div>
                     </div> <button type="submit"
-                        class="w-full bg-violet-600 hover:bg-primary/90 text-white font-bold py-3 px-6 !rounded-button shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                        class="bg-[#a82974] w-full hover:bg-[#a82974]/90 text-white font-bold py-3 px-6 !rounded-button shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
                         Se connecter </button>
                     <div class="relative my-8">
                         <div class="absolute inset-0 flex items-center">
@@ -125,7 +125,7 @@
                             <i class="ri-discord-fill text-xl mr-2 text-indigo-500"></i> Discord </button> </div>
                     <div class="text-center mt-8">
                         <p class="text-gray-600">Pas encore membre ? <a href="{{ route('signup') }}"
-                                class="text-primary font-medium hover:underline">Inscrivez-vous</a></p>
+                                class="text-[#a82974] font-medium hover:underline">Inscrivez-vous</a></p>
                     </div>
                 </form>
             </div>

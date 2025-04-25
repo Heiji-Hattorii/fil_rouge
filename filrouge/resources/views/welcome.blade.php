@@ -77,9 +77,9 @@
                     <p class="text-lg text-gray-200 mb-8">Explorez notre vaste collection d'animes et de mangas. Suivez
                         vos séries préférées et découvrez de nouveaux titres captivants.</p>
                     <div class="flex flex-wrap gap-4">
-                        <button
+                        <a href="{{ route('content.index') }}"
                             class="px-6 py-3 bg-[#a82974] text-white rounded-button whitespace-nowrap font-medium hover:bg-[#a82974]/90 transition-colors">Explorer
-                            la collection</button>
+                            la collection</a>
                         <button
                             class="px-6 py-3 bg-white/20 backdrop-blur-sm text-white border border-white/40 rounded-button whitespace-nowrap font-medium hover:bg-white/30 transition-colors">En
                             savoir plus</button>
@@ -91,7 +91,7 @@
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center mb-8">
                     <h2 class="text-2xl font-bold text-gray-900">Tendances du moment</h2>
-                    <a href="#" class="text-[#a82974] font-medium flex items-center">
+                    <a href="{{ route('content.index') }}" class="text-[#a82974] font-medium flex items-center">
                         Voir tout
                         <div class="w-5 h-5 ml-1 flex items-center justify-center">
                             <i class="ri-arrow-right-line"></i>
