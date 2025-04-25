@@ -20,12 +20,11 @@
             position: fixed;
             top: 0;
             left: 0;
-            object-position: bottom;
-            min-width: 100%;
-            min-height: 100%;
-            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
             z-index: -1;
-            opacity: 0.7;
+            opacity: 0.5;
         }
         h1,
         h2,
@@ -50,7 +49,7 @@
 
 <body class="min-h-screen text-gray-200">
     <video autoplay muted loop playsinline id="background-video">
-        <source src="{{asset('img/dasho.mp4')}}" type="video/mp4">
+        <source src="{{asset('img/japon100.mp4')}}" type="video/mp4">
         Ton navigateur ne supporte pas les vidéos HTML5.
     </video>
     <div class="relative">
@@ -76,7 +75,7 @@
                     class="w-32 h-32 rounded-full object-cover">
             @else
                 <div
-                    class="w-32 h-32 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center">
+                    class="w-32 h-32 rounded-full bg-gradient-to-br from-[#4B0082] to-[#8A2BE2] flex items-center justify-center">
                     <span class="text-4xl font-bold text-white">{{ strtoupper(substr(Auth::user()->name, 0, 1)) }}</span>
                 </div>
             @endif
@@ -95,12 +94,12 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div class="lg:col-span-2">
                 <div class="cadre rounded-lg p-6 shadow-xl">
-                    <h1 class="text-4xl text-primary mb-6 text-[#FF6B6B]">{{ Auth::user()->name }}</h1>
+                    <h1 class="text-4xl text-[#8A2BE2] mb-6">{{ Auth::user()->name }}</h1>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="profile-stats gradient-border rounded-lg p-5 bg-opacity-30 bg-black">
                             <div class="flex items-center mb-2">
-                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-secondary">
-                                    <i class="ri-at-line ri-lg text-blue-400"></i>
+                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#4B0082]">
+                                    <i class="ri-at-line ri-lg text-[#4B0082]"></i>
                                 </div>
                                 <h3 class="text-lg font-medium text-gray-300">Email</h3>
                             </div>
@@ -108,8 +107,8 @@
                         </div>
                         <div class="profile-stats gradient-border rounded-lg p-5 bg-opacity-30 bg-black">
                             <div class="flex items-center mb-2">
-                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-secondary">
-                                    <i class="ri-user-line ri-lg text-blue-400"></i>
+                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#4B0082]">
+                                    <i class="ri-user-line ri-lg text-[#4B0082]"></i>
                                 </div>
                                 <h3 class="text-lg font-medium text-gray-300">Pseudo</h3>
                             </div>
@@ -117,8 +116,8 @@
                         </div>
                         <div class="profile-stats gradient-border rounded-lg p-5 bg-opacity-30 bg-black">
                             <div class="flex items-center mb-2">
-                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-secondary">
-                                    <i class="ri-calendar-line ri-lg text-blue-400"></i>
+                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#4B0082]">
+                                    <i class="ri-calendar-line ri-lg"></i>
                                 </div>
                                 <h3 class="text-lg font-medium text-gray-300">Âge</h3>
                             </div>
@@ -126,8 +125,8 @@
                         </div>
                         <div class="profile-stats gradient-border rounded-lg p-5 bg-opacity-30 bg-black">
                             <div class="flex items-center mb-2">
-                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-secondary">
-                                    <i class="ri-heart-line ri-lg text-blue-400"></i>
+                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#4B0082]">
+                                    <i class="ri-heart-line ri-lg"></i>
                                 </div>
                                 <h3 class="text-lg font-medium text-gray-300">Animés favoris</h3>
                             </div>
@@ -136,8 +135,8 @@
                     </div>
                     <div class="mt-8 profile-stats gradient-border rounded-lg p-5 bg-opacity-30 bg-black">
                         <div class="flex items-center mb-3">
-                            <div class="w-8 h-8 flex items-center justify-center mr-3 text-secondary">
-                                <i class="ri-file-list-line ri-lg text-blue-400"></i>
+                            <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#4B0082]">
+                                <i class="ri-file-list-line ri-lg"></i>
                             </div>
                             <h3 class="text-lg font-medium text-gray-300">Bio</h3>
                         </div>
@@ -153,11 +152,11 @@
             </div>
             <div>
                 <div class="cadre rounded-lg p-6 shadow-xl mb-6">
-                    <h2 class="text-2xl text-secondary mb-4">Statistiques</h2>
+                    <h2 class="text-2xl text-[#8A2BE2] mb-4">Statistiques</h2>
                     <div class="space-y-4">
                         <div class="flex justify-between items-center p-3 bg-black bg-opacity-30 rounded-lg">
                             <div class="flex items-center">
-                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#8A2BE2]">
                                     <i class="ri-eye-line ri-lg  text-[#FF6B6B]"></i>
                                 </div>
                                 <span>Animés vus</span>
@@ -166,7 +165,7 @@
                         </div>
                         <div class="flex justify-between items-center p-3 bg-black bg-opacity-30 rounded-lg">
                             <div class="flex items-center">
-                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#8A2BE2]">
                                     <i class="ri-book-open-line ri-lg  text-[#FF6B6B]"></i>
                                 </div>
                                 <span>Mangas lus</span>
@@ -175,7 +174,7 @@
                         </div>
                         <div class="flex justify-between items-center p-3 bg-black bg-opacity-30 rounded-lg">
                             <div class="flex items-center">
-                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#8A2BE2]">
                                     <i class="ri-star-line ri-lg  text-[#FF6B6B]"></i>
                                 </div>
                                 <span>Évaluations</span>
@@ -185,10 +184,10 @@
                     </div>
                 </div>
                 <div class="cadre rounded-lg p-6 shadow-xl">
-                    <h2 class="text-2xl text-primary mb-4  text-[#FF6B6B]">Actions du compte</h2>
+                    <h2 class="text-2xl text-[#8A2BE2] mb-4 ">Actions du compte</h2>
                     <div class="space-y-4">
                         <a href="{{ route('profile.edit') }}"
-                            class="flex items-center justify-between w-full p-3 bg-secondary bg-opacity-20 hover:bg-opacity-30 rounded-lg transition-all">
+                            class="flex items-center justify-between w-full p-3 bg-[#4B0082] bg-opacity-20 hover:bg-opacity-30 rounded-lg transition-all">
                             <div class="flex items-center">
                                 <div class="w-8 h-8 flex items-center justify-center mr-3">
                                     <i class="ri-user-settings-line ri-lg  text-[#FF6B6B]"></i>
@@ -204,7 +203,7 @@
                             <button type="submit"
                                 class="flex items-center justify-between w-full p-3 bg-black bg-opacity-30 hover:bg-opacity-50 rounded-lg transition-all !rounded-button whitespace-nowrap">
                                 <div class="flex items-center">
-                                    <div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+                                    <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#8A2BE2]">
                                         <i class="ri-logout-box-line ri-lg  text-[#FF6B6B]"></i>
                                     </div>
                                     <span>Déconnexion</span>
@@ -218,9 +217,9 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" onclick="return confirm('Supprimer définitivement votre compte ?');"
-                                class="flex items-center justify-between w-full p-3 bg-primary bg-opacity-20 hover:bg-opacity-30 rounded-lg transition-all !rounded-button whitespace-nowrap">
+                                class="flex items-center justify-between w-full p-3 bg-[#8A2BE2] bg-opacity-20 hover:bg-opacity-30 rounded-lg transition-all !rounded-button whitespace-nowrap">
                                 <div class="flex items-center">
-                                    <div class="w-8 h-8 flex items-center justify-center mr-3 text-primary">
+                                    <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#8A2BE2]">
                                         <i class="ri-delete-bin-line ri-lg  text-[#FF6B6B]"></i>
                                     </div>
                                     <span>Supprimer mon compte</span>

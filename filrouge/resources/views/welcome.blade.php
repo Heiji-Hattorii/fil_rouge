@@ -16,9 +16,9 @@
         }
 
         .hero-section {
-            background-image: url("{{ asset('img/japon6.jpg') }}");
+            background-image: url("{{ asset('img/japon4.jpg') }}");
             background-size: cover;
-            background-position: center;
+            background-position: bottom;
         }
 
         .custom-switch {
@@ -40,27 +40,27 @@
     <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center">
-                <a href="#" class="text-2xl font-['Pacifico'] font-bold text-[#a82974] mr-8">蓮の花</a>
+                <a href="#" class="text-2xl font-['Pacifico'] font-bold text-[#8A2BE2] mr-8">蓮の花</a>
                 <nav class="hidden md:flex space-x-6">
-                    <a href="#" class="text-gray-700 hover:text-[#a82974] font-medium">Anime</a>
-                    <a href="#" class="text-gray-700 hover:text-[#a82974] font-medium">Manga</a>
-                    <a href="#" class="text-gray-700 hover:text-[#a82974] font-medium">Nouveautés</a>
-                    <a href="#" class="text-gray-700 hover:text-[#a82974] font-medium">Top Classements</a>
-                    <a href="#" class="text-gray-700 hover:text-[#a82974] font-medium">Communauté</a>
+                    <a href="#" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Anime</a>
+                    <a href="#" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Manga</a>
+                    <a href="#" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Nouveautés</a>
+                    <a href="#" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Top Classements</a>
+                    <a href="#" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Communauté</a>
                 </nav>
             </div>
             <div class="flex items-center space-x-4">
                 <div class="relative hidden md:block">
                     <input type="text" placeholder="Rechercher..."
-                        class="pl-10 pr-4 py-2 w-64 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#a82974] focus:border-transparent text-sm">
+                        class="pl-10 pr-4 py-2 w-64 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#8A2BE2] focus:border-transparent text-sm">
                     <div class="absolute left-3 top-2.5 w-5 h-5 flex items-center justify-center text-gray-500">
                         <i class="ri-search-line"></i>
                     </div>
                 </div>
                 <a href="{{ route('login') }}"
-                    class="px-4 py-2 border border-[#a82974] text-[#a82974] hover:bg-[#a82974] hover:text-white transition-colors duration-300 rounded-button whitespace-nowrap text-sm font-medium">Connexion</a>
+                    class="px-4 py-2 border border-[#8A2BE2] text-[#8A2BE2] hover:bg-[#8A2BE2] hover:text-white transition-colors duration-300 rounded-button whitespace-nowrap text-sm font-medium">Connexion</a>
                 <a href="{{ route('signup') }}"
-                    class="px-4 py-2 border border-[#a82974] bg-[#a82974] text-white hover:text-[#a82974] hover:bg-white transition-colors duration-300 rounded-button whitespace-nowrap text-sm font-medium">Inscription</a>
+                    class="px-4 py-2 border border-[#8A2BE2] bg-[#8A2BE2] text-white hover:text-[#8A2BE2] hover:bg-white transition-colors duration-300 rounded-button whitespace-nowrap text-sm font-medium">Inscription</a>
                 <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
                     <i class="ri-menu-line text-2xl"></i>
                 </button>
@@ -78,7 +78,7 @@
                         vos séries préférées et découvrez de nouveaux titres captivants.</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="{{ route('content.index') }}"
-                            class="px-6 py-3 bg-[#a82974] text-white rounded-button whitespace-nowrap font-medium hover:bg-[#a82974]/90 transition-colors">Explorer
+                            class="px-6 py-3 bg-[#8A2BE2] text-white rounded-button whitespace-nowrap font-medium hover:bg-[#8A2BE2]/90 transition-colors">Explorer
                             la collection</a>
                         <button
                             class="px-6 py-3 bg-white/20 backdrop-blur-sm text-white border border-white/40 rounded-button whitespace-nowrap font-medium hover:bg-white/30 transition-colors">En
@@ -91,7 +91,7 @@
             <div class="container mx-auto px-4">
                 <div class="flex justify-between items-center mb-8">
                     <h2 class="text-2xl font-bold text-gray-900">Tendances du moment</h2>
-                    <a href="{{ route('content.index') }}" class="text-[#a82974] font-medium flex items-center">
+                    <a href="{{ route('content.index') }}" class="text-[#8A2BE2] font-medium flex items-center">
                         Voir tout
                         <div class="w-5 h-5 ml-1 flex items-center justify-center">
                             <i class="ri-arrow-right-line"></i>
@@ -138,7 +138,7 @@
                                                 @endauth
                                                 </span>
                                                 <button
-                                                    class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-[#a82974]">
+                                                    class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-[#8A2BE2]">
                                                     <i class="ri-heart-line"></i>
                                                 </button>
                                             </div>
@@ -156,7 +156,7 @@
                     @foreach ($categories as $category)
                     <a href="#" class="bg-white rounded shadow-sm p-4 text-center hover:shadow-md transition-shadow">
                         <div
-                            class="w-12 h-12 mx-auto mb-3 bg-[#a82974]/10 rounded-full flex items-center justify-center text-[#a82974]">
+                            class="w-12 h-12 mx-auto mb-3 bg-[#8A2BE2]/10 rounded-full flex items-center justify-center text-[#8A2BE2]">
                             <i class="{{ $category->icone }} text-3xl"></i>
                         </div>
                         <h3 class="font-medium text-gray-900">{{ $category->nom }}</h3>
@@ -171,18 +171,18 @@
                     <h2 class="text-2xl font-bold text-gray-900">Derniers mangas ajoutés</h2>
                     <div class="flex items-center space-x-2">
                         <button
-                            class="px-4 py-1 bg-gray-100 text-gray-700 rounded-full whitespace-nowrap text-sm font-medium active:bg-[#a82974] active:text-white">Tous</button>
+                            class="px-4 py-1 bg-gray-100 text-gray-700 rounded-full whitespace-nowrap text-sm font-medium active:bg-[#8A2BE2] active:text-white">Tous</button>
                         <button
-                            class="px-4 py-1 bg-[#a82974] text-white rounded-full whitespace-nowrap text-sm font-medium">Shonen</button>
+                            class="px-4 py-1 bg-[#8A2BE2] text-white rounded-full whitespace-nowrap text-sm font-medium">Shonen</button>
                         <button
                             class="px-4 py-1 bg-gray-100 text-gray-700 rounded-full whitespace-nowrap text-sm font-medium">Shojo</button>
                         <button
                             class="px-4 py-1 bg-gray-100 text-gray-700 rounded-full whitespace-nowrap text-sm font-medium">Seinen</button>
                     </div>
                 </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 @foreach($contents as $content)
                     @if($content->type == "manga")
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                     <div
                         class="bg-white rounded shadow-sm overflow-hidden transition-transform hover:translate-y-[-4px]">
                         <div class="relative aspect-[3/4]">
@@ -196,14 +196,14 @@
                             <p class="text-xs text-gray-600">{{$content->datePublication}}</p>
                         </div>
                     </div>
+                    @endif
+                    @endforeach
                 </div>
-                @endif
-                @endforeach
             </div>
         </section>
 
     </main>
-    <footer class="bg-gray-900 text-gray-400 py-12">
+    <footer class="bg-[#47146E] text-[#F4C2C2] py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
