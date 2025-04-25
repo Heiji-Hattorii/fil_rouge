@@ -15,23 +15,13 @@
 
     <button type="submit">Filtrer</button>
 </form>
-<!-- 
-@foreach ($contents as $content)
-    <div>
-        <h3>{{ $content->titre }}</h3>
-        <p>{{ $content->description }}</p>
-        <p>Type: {{ $content->type }}</p>
-        <p>Catégorie: {{ $content->category->nom ?? 'Aucune' }}</p>
-        <p>Date de publication: {{ \Carbon\Carbon::parse($content->datePublication)->format('d/m/Y') }}</p>
-    </div>
-@endforeach -->
 
-
-<form action="" method="POST">
+<form action="" method="POST" enctype="multipart/form-data">
     @csrf
-    <input type="text" name="titre" placeholder="titre">
-    <input type="text" name="description" placeholder="description">
-    <input type="date" name="datePublication" placeholder="datePublication">
+    <input type="file" name="photo" required>
+    <input type="text" name="titre" placeholder="titre" required>
+    <input type="text" name="description" placeholder="description" required>
+    <input type="date" name="datePublication" placeholder="datePublication" required>
     <select name="category_id" required>
     @foreach($categories as $category)
         <option value="{{ $category->id }}">{{ $category->nom }}</option>

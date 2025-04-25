@@ -17,10 +17,12 @@ class CategoryController extends Controller
     {
         $request->validate([
             'nom' => 'required|string|max:255',
+            'icone' => 'required|string|max:255',
         ]);
 
         Category::create([
             'nom' => $request->nom,
+            'icone' => $request->icone,
         ]);
 
         return redirect()->route('category.index')->with('success', 'Catégorie ajoutée avec succès.');
@@ -30,11 +32,13 @@ class CategoryController extends Controller
     {
         $request->validate([
             'nom' => 'required|string|max:255',
+            'icone' => 'required|string|max:255',
         ]);
 
         $category = Category::findOrFail($id);
         $category->update([
             'nom' => $request->nom,
+            'icone' => $request->icone,
         ]);
 
         return redirect()->route('category.index')->with('success', 'Catégorie mise à jour avec succès.');

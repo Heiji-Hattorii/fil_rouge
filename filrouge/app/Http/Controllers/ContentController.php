@@ -29,8 +29,15 @@ class ContentController extends Controller
             'type' => 'required|in:anime,manga',
             'category_id' => 'required|exists:categories,id',
             'datePublication' => 'required|date',
-        ]);
+            'photo' => 'image|mimes:jpg,png,jpeg,gif,webp',
 
+        ]);
+        if ($request->hasFile('photo')) {
+            $filename = time() . '.' . $request->photo->extension();
+            $request->photo->move(public_path('contents'), $filename);
+            $validated['photo'] = 'contents/' . $filename;
+        }
+    
         $content = Content::create($validated);
         // return redirect()->route('content.index');
 

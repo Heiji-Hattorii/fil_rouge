@@ -18,11 +18,15 @@ use App\Http\Controllers\QuizController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Models\Content;
+use App\Models\Category;
 
 
 
 Route::get('/', function () {
-    return view('welcome');
+    $contents = Content::all();
+    $categories = Category::all();
+    return view('welcome',['contents' => $contents,'categories'=> $categories]);
 });
 Route::get('/dashboard', function () {
     return view('dashboard');

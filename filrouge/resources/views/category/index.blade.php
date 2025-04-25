@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Catégories</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="p-10 bg-gray-100">
@@ -16,6 +17,7 @@
             <tr>
                 <th class="p-2 text-left">ID</th>
                 <th class="p-2 text-left">Nom</th>
+                <th class="p-2 text-left">Icone</th>
                 <th class="p-2 text-left">Actions</th>
             </tr>
         </thead>
@@ -24,8 +26,9 @@
                 <tr class="border-b">
                     <td class="p-2">{{ $cat->id }}</td>
                     <td class="p-2">{{ $cat->nom }}</td>
+                    <td class="p-2"> <i class="{{ $cat->icone }} 3xl "></i></td>
                     <td class="p-2">
-                        <button onclick="openEditModal({{ $cat->id }}, '{{ $cat->nom }}')" class="bg-yellow-500 text-white px-3 py-1 rounded">Modifier</button>
+                        <button onclick="openEditModal({{ $cat->id }}, '{{ $cat->nom }}','{{ $cat->icone }}')" class="bg-yellow-500 text-white px-3 py-1 rounded">Modifier</button>
                         <button onclick="openDeleteModal({{ $cat->id }})" class="bg-red-500 text-white px-3 py-1 rounded">Supprimer</button>
                     </td>
                 </tr>
@@ -39,6 +42,7 @@
             @csrf
             <h2 class="text-xl font-semibold mb-4">Ajouter une catégorie</h2>
             <input type="text" name="nom" placeholder="Nom de la catégorie" class="w-full p-2 border rounded mb-4" required>
+            <input type="text" name="icone" placeholder="icone" class="w-full p-2 border rounded mb-4" required>
             <div class="flex justify-end gap-2">
                 <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Ajouter</button>
                 <button type="button" onclick="document.getElementById('addModal').classList.add('hidden')" class="px-4 py-2 border rounded">Annuler</button>
@@ -52,6 +56,7 @@
             @method('PUT')
             <h2 class="text-xl font-semibold mb-4">Modifier la catégorie</h2>
             <input type="text" name="nom" id="editNom" class="w-full p-2 border rounded mb-4" required>
+            <input type="text" name="icone" id="editIcone" class="w-full p-2 border rounded mb-4" required>
             <div class="flex justify-end gap-2">
                 <button type="submit" class="bg-yellow-500 text-white px-4 py-2 rounded">Modifier</button>
                 <button type="button" onclick="document.getElementById('editModal').classList.add('hidden')" class="px-4 py-2 border rounded">Annuler</button>
@@ -70,12 +75,12 @@
             </div>
         </form>
     </div>
-
     <script>
-        function openEditModal(id, nom) {
+        function openEditModal(id, nom,icone) {
             const form = document.getElementById('editForm');
             form.action = `/categories/${id}`;
             document.getElementById('editNom').value = nom;
+            document.getElementById('editIcone').value = icone;
             document.getElementById('editModal').classList.remove('hidden');
         }
 

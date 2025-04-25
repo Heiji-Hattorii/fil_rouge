@@ -10,7 +10,7 @@ class Content extends Model
     use HasFactory;
 
     protected $fillable = [
-        'titre', 'description', 'type', 'category_id', 'datePublication',
+        'titre', 'description', 'type', 'category_id', 'datePublication','photo'
     ];
 
     public function anime()
