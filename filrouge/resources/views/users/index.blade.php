@@ -1,4 +1,5 @@
 <script src="https://cdn.tailwindcss.com"></script>
+
 <div class="container mx-auto p-4">
     @if(session('success'))
         <div class="bg-green-500 text-white p-3 rounded mb-4">

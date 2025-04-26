@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('titre');
             $table->text('description');
             $table->enum('type',['anime','manga']);
-            $table->foreignId('category_id')->constrained('categories')->onDelete('set null')->nullable();
+            $table->foreignId('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
             $table->date('datePublication');
             $table->string('photo');
             $table->timestamps();
