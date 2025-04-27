@@ -4,7 +4,7 @@
  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>AnimeManga - Connexion</title>
+     <title>蓮の花 - Connexion</title>
      <script src="https://cdn.tailwindcss.com/3.4.16"></script>
      <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -49,7 +49,7 @@
  
              <div class="absolute inset-0 bg-purple-800 opacity-60"></div>
              <div class="relative z-10 text-white text-center max-w-md">
-                 <h1 class="logo-font text-4xl md:text-5xl mb-4">AnimeManga</h1>
+                 <h1 class="logo-font text-4xl md:text-5xl mb-4">蓮の花</h1>
                  <h2 class="title-font text-3xl md:text-4xl mb-6">BIENVENUE</h2>
                  <p class="mb-8 text-lg">Connectez-vous pour accéder à votre univers anime et manga préféré.</p>
                  <div class="space-y-6">
@@ -75,7 +75,7 @@
              <div class="w-full max-w-md">
                  <div class="text-center mb-12">
                      <h2 class="title-font text-3xl text-gray-800 mb-2">CONNEXION</h2>
-                     <p class="text-gray-600">Accédez à votre compte AnimeManga</p>
+                     <p class="text-gray-600">Accédez à votre compte 蓮の花</p>
                  </div>
                  <form action="{{ route('login') }}" method="POST" class="space-y-6"> @csrf <div class="space-y-4">
                          <div class="space-y-2"> <label for="email"

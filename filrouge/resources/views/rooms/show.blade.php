@@ -396,7 +396,7 @@
                 <div class="separator mb-6"></div>
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                     <div class="text-center md:text-left">
-                        <h3 class="text-xl font-['Pacifico'] text-[#8A2BE2]">AnimeManga Community</h3>
+                        <h3 class="text-xl font-['Pacifico'] text-[#8A2BE2]">蓮の花 Community</h3>
                         <p class="text-gray-600 text-sm mt-1">Le meilleur endroit pour discuter de vos séries préférées
                         </p>
                     </div>
@@ -420,7 +420,7 @@
                     </div>
                 </div>
                 <div class="text-center text-gray-500 text-xs mt-6">
-                    © 2025 AnimeManga Community. Tous droits réservés.
+                    © 2025 蓮の花 Community. Tous droits réservés.
                 </div>
             </div>
         </footer>

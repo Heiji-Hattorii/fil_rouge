@@ -4,7 +4,7 @@
  <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>AnimeManga - Inscription</title>
+     <title>蓮の花 - Inscription</title>
      <script src="https://cdn.tailwindcss.com/3.4.16"></script>
      <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -75,7 +75,7 @@
  
              <div class="absolute inset-0 bg-purple-800 opacity-60"></div>
              <div class="relative z-10 text-white text-center max-w-md">
-                 <h1 class="logo-font text-4xl md:text-5xl mb-4">AnimeManga</h1>
+                 <h1 class="logo-font text-4xl md:text-5xl mb-4">蓮の花</h1>
                  <h2 class="title-font text-3xl md:text-4xl mb-6">L'UNIVERS DES ANIMES ET MANGAS</h2>
                  <p class="mb-8 text-lg">Rejoignez notre communauté passionnée et partagez votre amour pour les animes et
                      mangas avec des milliers de fans.</p>
