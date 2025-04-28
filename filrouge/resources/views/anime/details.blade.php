@@ -37,7 +37,7 @@
             top: 15px;
             border-width: 10px 10px 0 0;
             border-style: solid;
-            border-color: transparent #fff transparent transparent;
+            border-color: transparent gray;
         }
         .star {
             cursor: pointer;
@@ -172,7 +172,7 @@
                                         {{ substr($comment->user->name, 0, 1) }}
                                     </div>
                                     <div class="ml-4 flex-1">
-                                        <div class="comment-bubble bg-black bg-opacity-70 border border-gray-100 p-4 shadow-sm">
+                                        <div class="comment-bubble bg-black bg-opacity-70 border border-gray-200 p-4 shadow-sm">
                                             <div class="flex justify-between items-start mb-2">
                                                 <span class="font-bold text-white">{{ $comment->user->name }}</span>
                                                 <span class="text-xs text-white">{{ $comment->created_at->format('d/m/Y H:i') }}</span>
