@@ -11,7 +11,8 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
+            background-color: #2D1B3D;
+
         }
         .anime-header {
             background-image: url({{ asset('img/jj.jpg') }});
@@ -50,7 +51,7 @@
             height: 100%;
             object-fit: fill;
             z-index: -1;
-            opacity: 0.5;
+            opacity: 0.50;
         }
         .star:hover {
             transform: scale(1.2);
@@ -68,8 +69,9 @@
         <source src="{{asset('img/japon100.mp4')}}" type="video/mp4">
         Ton navigateur ne supporte pas les vidéos HTML5.
     </video>
+    
     <div class="anime-header relative w-full h-64 md:h-40 flex items-center justify-center mb-8">
-        <div class="absolute inset-0 bg-[#6B46C1] bg-opacity-55"></div>
+        <div class="absolute inset-0 bg-[#6B46C1] bg-opacity-60"></div>
         <div class="relative z-10 text-center px-4">
             <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">{{ $anime->content->titre }}</h1>
             <div class="flex justify-center items-center space-x-2 mt-4">
