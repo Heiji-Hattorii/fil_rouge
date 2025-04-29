@@ -140,7 +140,7 @@
     <div class="min-h-screen flex flex-col">
         <!-- Header -->
         <header
-            class="bg-gradient-to-r from-[#8A2BE2] to-[#47146E] text-white py-6 px-4 md:px-8 relative overflow-hidden">
+            class="bg-gradient-to-r from-[#8A2BE2] to-[#47146E] text-white py-6 px-4 md:px-8 relative overflow-hidden pt-20">
             <div class="header-decoration"></div>
             <div class="container mx-auto relative z-10">
                 <div class="flex items-center justify-between">
@@ -155,12 +155,7 @@
                         </div>
                     </div>
                     <div class="hidden md:flex items-center gap-3">
-                        <div class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full">
-                            <i class="ri-notification-3-line text-white ri-lg"></i>
-                        </div>
-                        <div class="w-10 h-10 flex items-center justify-center bg-white/10 rounded-full">
-                            <i class="ri-settings-3-line text-white ri-lg"></i>
-                        </div>
+
                     </div>
                 </div>
             </div>

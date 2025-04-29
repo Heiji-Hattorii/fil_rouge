@@ -60,10 +60,10 @@
         <source src="{{asset('img/japon100.mp4')}}" type="video/mp4">
         Ton navigateur ne supporte pas les vidéos HTML5.
     </video>
-    <div class="min-h-screen bg-transparent">
+    <div class="min-h-screen bg-transparent pt-[60px]">
     <header class="bg-black bg-opacity-75 shadow-sm">
             <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-                <h1 class="text-3xl font-['Pacifico'] text-white font-bold">蓮の花</h1>
+                <h1 class="text-3xl font-['Pacifico'] text-white font-bold"></h1>
                 <div class="flex items-center space-x-4">
                     <span class="text-white">Manga</span>
                     <div class="relative inline-block w-12 align-middle select-none">
