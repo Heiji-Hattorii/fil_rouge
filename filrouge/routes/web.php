@@ -17,7 +17,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Models\Content;
 use App\Models\Category;
 
@@ -27,7 +27,7 @@ Route::get('/', function () {
     $contents = Content::all();
     $categories = Category::all();
     return view('welcome',['contents' => $contents,'categories'=> $categories]);
-});
+})->name('welcome');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -142,10 +142,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/content/filter', [ContentController::class, 'filter'])->name('content.filter');
 
 
-    Route::get('/users', [UserController::class, 'index'])->name('users.index');
-    Route::post('/users', [UserController::class, 'store'])->name('users.store');
-    Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
-    Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::get('/users', [AdminController::class, 'index'])->name('users.index');
+    Route::post('/users', [AdminController::class, 'store'])->name('users.store');
+    Route::put('/users/{user}', [AdminController::class, 'update'])->name('users.update');
+    Route::delete('/users/{user}', [AdminController::class, 'destroy'])->name('users.destroy');
 
 
 Route::post('/chapitres/{id}/add-view', [ChapitreController::class, 'addView'])->name('chapitre.addView');

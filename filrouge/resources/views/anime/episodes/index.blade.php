@@ -1,3 +1,4 @@
+@include('partials.header')
 
 <div class="container">
     <h1>Épisodes de {{ $anime->content->titre }}</h1>

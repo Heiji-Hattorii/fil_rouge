@@ -1,4 +1,6 @@
 <script src="https://cdn.tailwindcss.com"></script>
+@include('partials.header')
+
 <h1>Chapitres</h1>
 
 <form

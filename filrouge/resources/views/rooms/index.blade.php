@@ -1,3 +1,4 @@
+@include('partials.header')
 
     <h1>Liste des Rooms</h1>
 

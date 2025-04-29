@@ -1,3 +1,4 @@
+@include('partials.header')
 <form action="{{ route('manga.pages.store', ['chapitre_id' => $chapitre->id]) }}" method="POST" enctype="multipart/form-data">
     @csrf
 

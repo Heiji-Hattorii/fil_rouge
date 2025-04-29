@@ -37,36 +37,8 @@
 </head>
 
 <body class="bg-gray-50">
-    <header class="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center">
-                <a href="#" class="text-2xl font-['Pacifico'] font-bold text-[#8A2BE2] mr-8">蓮の花</a>
-                <nav class="hidden md:flex space-x-6">
-                    <a href="#" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Anime</a>
-                    <a href="#" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Manga</a>
-                    <a href="#" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Nouveautés</a>
-                    <a href="#" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Top Classements</a>
-                    <a href="#" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Communauté</a>
-                </nav>
-            </div>
-            <div class="flex items-center space-x-4">
-                <div class="relative hidden md:block">
-                    <input type="text" placeholder="Rechercher..."
-                        class="pl-10 pr-4 py-2 w-64 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#8A2BE2] focus:border-transparent text-sm">
-                    <div class="absolute left-3 top-2.5 w-5 h-5 flex items-center justify-center text-gray-500">
-                        <i class="ri-search-line"></i>
-                    </div>
-                </div>
-                <a href="{{ route('login') }}"
-                    class="px-4 py-2 border border-[#8A2BE2] text-[#8A2BE2] hover:bg-[#8A2BE2] hover:text-white transition-colors duration-300 rounded-button whitespace-nowrap text-sm font-medium">Connexion</a>
-                <a href="{{ route('signup') }}"
-                    class="px-4 py-2 border border-[#8A2BE2] bg-[#8A2BE2] text-white hover:text-[#8A2BE2] hover:bg-white transition-colors duration-300 rounded-button whitespace-nowrap text-sm font-medium">Inscription</a>
-                <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
-                    <i class="ri-menu-line text-2xl"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+@include('partials.header')
+
     <main class="pt-16">
         <section class="hero-section relative">
             <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent"></div>
@@ -233,25 +205,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const menuButton = document.querySelector('.ri-menu-line').parentElement;
-            const mobileNav = document.querySelector('nav');
-            menuButton.addEventListener('click', function () {
-                mobileNav.classList.toggle('hidden');
-                mobileNav.classList.toggle('flex');
-                mobileNav.classList.toggle('flex-col');
-                mobileNav.classList.toggle('absolute');
-                mobileNav.classList.toggle('top-16');
-                mobileNav.classList.toggle('left-0');
-                mobileNav.classList.toggle('right-0');
-                mobileNav.classList.toggle('bg-white');
-                mobileNav.classList.toggle('p-4');
-                mobileNav.classList.toggle('shadow-md');
-                mobileNav.classList.toggle('z-50');
-            });
-        });
-    </script>
+   
 </body>
 
 </html>

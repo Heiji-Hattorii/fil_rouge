@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
     <style>
-        :where([class^="ri-"])::before { content: "\f3c2"; }
         body {
             font-family: 'Nunito', sans-serif;
             background-image: url('https://readdy.ai/api/search-image?query=anime%20manga%20background%20with%20subtle%20japanese%20patterns%2C%20dark%20purple%20and%20blue%20gradient%2C%20minimalist%20design%2C%20not%20too%20busy%2C%20perfect%20for%20quiz%20website%20background%2C%20high%20quality%20digital%20art&width=1920&height=1080&seq=bg1&orientation=landscape');
@@ -92,6 +91,8 @@
     </style>
 </head>
 <body class="min-h-screen">
+@include('partials.header')
+
     <header class="bg-gradient-to-r from-[#6C63FF]/90 to-[#FF6B8B]/90 py-4 shadow-lg">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <h1 class="font-['Pacifico'] text-white text-3xl">AnimeQuiz</h1>

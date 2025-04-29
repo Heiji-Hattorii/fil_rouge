@@ -1,3 +1,4 @@
+@include('partials.header')
 @if($pages->isEmpty())
     <p>Aucune page trouvée pour ce chapitre.</p>
 @else

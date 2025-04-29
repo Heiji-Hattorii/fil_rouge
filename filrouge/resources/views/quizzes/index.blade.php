@@ -1,4 +1,6 @@
 <script src="https://cdn.tailwindcss.com"></script>
+@include('partials.header')
+
 <div class="container mx-auto p-4">
     <h1 class="text-xl font-bold mb-4">Quiz pour le contenu : {{ $content->titre }}</h1>
 

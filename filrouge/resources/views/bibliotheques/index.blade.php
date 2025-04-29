@@ -54,6 +54,8 @@
     </style>
 </head>
 <body>
+@include('partials.header')
+
 <video autoplay muted loop playsinline id="background-video">
         <source src="{{asset('img/japon100.mp4')}}" type="video/mp4">
         Ton navigateur ne supporte pas les vidéos HTML5.

@@ -1,4 +1,5 @@
 <script src="https://cdn.tailwindcss.com"></script>
+@include('partials.header')
 
 <div class="container mx-auto p-4">
     @if(session('success'))

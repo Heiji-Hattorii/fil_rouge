@@ -135,6 +135,8 @@
 </head>
 
 <body>
+@include('partials.header')
+
     <div class="min-h-screen flex flex-col">
         <!-- Header -->
         <header

@@ -1,4 +1,4 @@
-
+@include('partials.header')
 <div class="container">
     <h2>Ajouter un Manga</h2>
     <form method="POST" action="{{ route('manga.store') }}">

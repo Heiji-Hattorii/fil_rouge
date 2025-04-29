@@ -1,4 +1,5 @@
-    <h2 class="text-xl font-bold">Recommandations basées sur votre bibliothèque</h2>
+@include('partials.header')
+<h2 class="text-xl font-bold">Recommandations basées sur votre bibliothèque</h2>
 
     @if($recommandations->isEmpty())
         <p>Aucune recommandation pour l’instant.</p>

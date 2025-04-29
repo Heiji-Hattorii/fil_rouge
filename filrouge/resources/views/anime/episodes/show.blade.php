@@ -1,3 +1,4 @@
+@include('partials.header')
 <div class="container">
     <h1>episode {{ $episode->numero_episode }}</h1>
     <p><strong>Contenu :</strong></p>

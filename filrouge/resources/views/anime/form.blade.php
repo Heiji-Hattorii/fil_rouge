@@ -1,3 +1,4 @@
+@include('partials.header')
 <form action="{{ route('anime.store') }}" method="POST">
     @csrf
     <input type="hidden" name="content_id" value="{{ $content_id }}">

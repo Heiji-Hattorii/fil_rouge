@@ -65,12 +65,14 @@
     </style>
 </head>
 <body>
-<video autoplay muted loop playsinline id="background-video">
+@include('partials.header')
+    
+    <video autoplay muted loop playsinline id="background-video">
         <source src="{{asset('img/japon100.mp4')}}" type="video/mp4">
         Ton navigateur ne supporte pas les vidéos HTML5.
     </video>
     
-    <div class="manga-header relative w-full h-64 md:h-40 flex items-center justify-center mb-8">
+    <div class="anime-header pt-12 relative w-full h-64 md:h-60 flex items-center justify-center mb-8">
         <div class="absolute inset-0 bg-[#6B46C1] bg-opacity-60"></div>
         <div class="relative z-10 text-center px-4">
             <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">{{ $manga->content->titre }}</h1>
