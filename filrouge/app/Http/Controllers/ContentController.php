@@ -51,10 +51,15 @@ class ContentController extends Controller
 
     public function show($id)
     {
-        $content = Content::with('category')->findOrFail($id);
+        $content = Content::with(['category', 'anime', 'manga'])->findOrFail($id);
 
-        // $content = Content::findOrFail($id);
+        if ($content->type === 'anime' && $content->anime) {
+            return redirect()->route('anime.details', ['id' => $content->anime->id]);
+        } elseif ($content->type === 'manga' && $content->manga) {
+            return redirect()->route('manga.details', ['id' => $content->manga->id]);
+        }
         return view('content.details', compact('content'));
+
     }
 
 
