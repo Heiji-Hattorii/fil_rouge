@@ -109,10 +109,28 @@
                                                     @endif
                                                 @endauth
                                                 </span>
-                                                <button
-                                                    class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-[#8A2BE2]">
-                                                    <i class="ri-heart-line"></i>
-                                                </button>
+
+@php
+    $isLiked = $content->likes->contains('user_id', auth()->id());
+@endphp
+
+@if ($isLiked)
+    <form action="{{ route('like.remove', $content->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="w-8 h-8 flex items-center justify-center text-red-500">
+            <i class="ri-heart-fill"></i> 
+        </button>
+    </form>
+@else
+    <form action="{{ route('like.add', $content->id) }}" method="POST">
+        @csrf
+        <button type="submit" class="w-8 h-8 flex items-center justify-center text-gray-500 hover:text-[#8A2BE2]">
+            <i class="ri-heart-line"></i> 
+        </button>
+    </form>
+@endif
+
                                             </div>
                                         </div>
                                     </div>

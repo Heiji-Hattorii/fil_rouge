@@ -83,6 +83,7 @@ Route::post('login', [AuthController::class, 'login']);
 Route::get('signup', [AuthController::class, 'showSignupForm'])->name('signup');
 Route::post('signup', [AuthController::class, 'register'])->name('register');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+use App\Http\Controllers\MembreController;
 
 
 Route::middleware('auth')->group(function () {
@@ -154,6 +155,9 @@ Route::post('/chapitre/{id}/removeView', [ChapitreController::class, 'removeView
 Route::post('/anime/{anime_id}/episodes/{id}/add-view', [EpisodeController::class, 'addView'])->name('episode.addView');
 Route::post('/anime/{anime_id}/episodes/{id}/removeView', [EpisodeController::class, 'removeView'])->name('episode.removeView');
 
+
+Route::post('/content/{id}/like', [MembreController::class, 'addLike'])->name('like.add');
+Route::delete('/content/{id}/like', [MembreController::class, 'removeLike'])->name('like.remove');
 
 
 

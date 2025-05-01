@@ -10,7 +10,12 @@ class Content extends Model
     use HasFactory;
 
     protected $fillable = [
-        'titre', 'description', 'type', 'category_id', 'datePublication','photo'
+        'titre',
+        'description',
+        'type',
+        'category_id',
+        'datePublication',
+        'photo'
     ];
 
     public function anime()
@@ -47,4 +52,14 @@ class Content extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+    
+    public function likedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'likes');
+    }
+
 }

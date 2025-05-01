@@ -5,17 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Détails du Chapitre - Manga</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#6D28D9',secondary:'#4C1D95'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
     <style>
-        :where([class^="ri-"])::before { content: "\f3c2"; }
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #0F172A;
+            background-color:rgb(69, 6, 105);
             color: #F8FAFC;
         }
         .manga-card {
@@ -29,11 +25,11 @@
         .comment-card:hover {
             transform: translateY(-2px);
         }
-        .btn-primary {
+        .btn-[#6D28D9] {
             background: linear-gradient(135deg, #6D28D9, #4C1D95);
             transition: all 0.3s ease;
         }
-        .btn-primary:hover {
+        .btn-[#6D28D9]:hover {
             background: linear-gradient(135deg, #7C3AED, #5B21B6);
             transform: translateY(-1px);
         }
@@ -59,9 +55,9 @@
         <div class="flex items-center justify-between mb-8">
             <h2 class="text-3xl font-bold text-white relative">
                 Détails du Chapitre
-                <span class="block h-1 w-24 bg-primary mt-2"></span>
+                <span class="block h-1 w-24 bg-[#6D28D9] mt-2"></span>
             </h2>
-            <a href="{{ route('manga.chapitres.index', ['manga_id' => $chapitre->manga_id]) }}" class="flex items-center text-gray-300 hover:text-primary transition-colors duration-300">
+            <a href="{{ route('manga.chapitres.index', ['manga_id' => $chapitre->manga_id]) }}" class="flex items-center text-gray-300 hover:text-[#6D28D9] transition-colors duration-300">
                 <div class="w-8 h-8 flex items-center justify-center mr-1">
                     <i class="ri-arrow-left-line ri-lg"></i>
                 </div>
@@ -88,7 +84,7 @@
             <div class="mt-8">
                 <form method="POST" action="{{ $deja_ajoute ? route('chapitre.removeView', $chapitre->id) : route('chapitre.addView', $chapitre->id) }}">
                     @csrf
-                    <button type="submit" class="whitespace-nowrap !rounded-button px-6 py-3 font-medium flex items-center {{ $deja_ajoute ? 'btn-danger' : 'btn-primary' }}">
+                    <button type="submit" class="whitespace-nowrap !rounded-button px-6 py-3 font-medium flex items-center {{ $deja_ajoute ? 'btn-danger' : 'btn-[#6D28D9]' }}">
                         <div class="w-5 h-5 flex items-center justify-center mr-2">
                             <i class="{{ $deja_ajoute ? 'ri-eye-off-line' : 'ri-eye-line' }}"></i>
                         </div>
@@ -119,8 +115,8 @@
                     @foreach($comments as $comment)
                         <div class="comment-card rounded-lg p-5 border border-gray-800">
                             <div class="flex items-center mb-3">
-                                <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mr-3">
-                                    <span class="text-primary font-bold">{{ substr($comment->user->name, 0, 1) }}</span>
+                                <div class="w-10 h-10 rounded-full bg-[#6D28D9]/20 flex items-center justify-center mr-3">
+                                    <span class="text-[#6D28D9] font-bold">{{ substr($comment->user->name, 0, 1) }}</span>
                                 </div>
                                 <div>
                                     <h4 class="font-medium text-white">{{ $comment->user->name }}</h4>
@@ -161,13 +157,13 @@
                         name="comment" 
                         placeholder="Partagez votre avis sur ce chapitre..." 
                         required 
-                        class="w-full bg-gray-900 border-none rounded-lg p-4 text-gray-100 placeholder-gray-500 focus:ring-2 focus:ring-primary/50"
+                        class="w-full bg-gray-900 border-none rounded-lg p-4 text-gray-100 placeholder-gray-500 focus:ring-2 focus:ring-[#6D28D9]/50"
                         rows="4"
                     ></textarea>
                 </div>
                 
                 <div class="flex justify-end">
-                    <button type="submit" class="whitespace-nowrap !rounded-button px-6 py-3 btn-primary flex items-center">
+                    <button type="submit" class="whitespace-nowrap !rounded-button px-6 py-3 btn-[#6D28D9] flex items-center">
                         <div class="w-5 h-5 flex items-center justify-center mr-2">
                             <i class="ri-send-plane-line"></i>
                         </div>

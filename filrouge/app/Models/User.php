@@ -59,4 +59,8 @@ public function vues()
 {
     return $this->belongsToMany(Chapitre::class, 'views', 'user_id', 'chapitre_id');
 }
+public function likes()
+{
+    return $this->hasMany(Like::class);
+}
 }
