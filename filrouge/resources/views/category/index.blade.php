@@ -10,7 +10,7 @@
 @include('partials.header')
 
 
-    <h1 class="text-2xl font-bold mb-4">Gestion des catégories</h1>
+    <h1 class="text-2xl font-bold  mt-10 mb-4">Gestion des catégories</h1>
 
     <button onclick="document.getElementById('addModal').classList.remove('hidden')" class="bg-blue-500 text-white px-4 py-2 rounded">Ajouter une catégorie</button>
 

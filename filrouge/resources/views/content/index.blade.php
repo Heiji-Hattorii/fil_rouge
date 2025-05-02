@@ -49,7 +49,7 @@
 <body>
 @include('partials.header')
 
-    <header class="bg-gradient-to-r from-[#7C3AED] to-[#DC2626] py-6">
+    <header class="bg-gradient-to-r from-[#7C3AED] to-[#DC2626] py-6 pt-20">
         <div class="container mx-auto px-4">
             <h1 class="text-3xl md:text-4xl font-bold text-white text-center font-['Pacifico']">蓮の花</h1>
             <p class="text-white text-center mt-2 opacity-90">Votre bibliothèque d'anime et manga préférés</p>

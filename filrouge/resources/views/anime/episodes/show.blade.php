@@ -14,7 +14,6 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f9fafb;
-            color: rgb(84, 14, 109);
         }
 
         .anime-title {
@@ -28,15 +27,9 @@
 
         .video-container {
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-            background: rgb(78, 14, 113);
             position: relative;
             overflow: hidden;
         }
-
-        video::-webkit-media-controls-panel {
-            background-color: rgba(70, 13, 94, 0.7);
-        }
-
         .comment-card {
             transition: all 0.3s ease;
         }
@@ -81,8 +74,8 @@
         <div class="mb-10">
             <h1 class="anime-title text-4xl sm:text-5xl font-bold text-center mb-8">Épisode
                 {{ $episode->numero_episode }}</h1>
-            <div class="video-container rounded-xl overflow-hidden mb-6">
-                <video class="w-full max-h-[70vh] bg-violet-700" controls>
+            <div class="video-container w-full rounded-xl overflow-hidden mb-6">
+                <video class="w-full max-h-[70vh] bg-gray-200" controls>
                     <source src="{{ asset($episode->contenu) }}" type="video/mp4">
                     Votre navigateur ne supporte pas la lecture de vidéos.
                 </video>

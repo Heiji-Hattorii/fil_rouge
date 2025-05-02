@@ -4,17 +4,16 @@
             <a href="{{ route('welcome') }}" class="text-2xl font-['Pacifico'] font-bold text-[#8A2BE2] mr-8">蓮の花</a>
             <nav class="hidden md:flex space-x-6">
                 @auth
+                @if(Auth::user())
                 <a href="{{ route('dashboard') }}" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Dashboard</a>
+                <a href="{{ route('content.index') }}" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Contenus</a>
+                <a href="{{ route('bibliotheques.index') }}" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Bibliothèque</a>
+                <a href="{{ route('rooms.index') }}" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Salles</a>
                     @if(Auth::user()->role == 'admin')
                     <a href="{{ route('category.index') }}" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Catégories</a>
-                    <a href="{{ route('content.index') }}" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Contenus</a>
                     <a href="{{ route('users.index') }}" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Utilisateurs</a>
-                    <a href="{{ route('rooms.index') }}" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Salles</a>
-                    @else
-                    <a href="{{ route('content.index') }}" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Contenus</a>
-                    <a href="{{ route('bibliotheques.index') }}" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Bibliothèque</a>
-                    <a href="{{ route('rooms.index') }}" class="text-gray-700 hover:text-[#8A2BE2] font-medium">Salles</a>
                     @endif
+                @endif
                 @endauth
             </nav>
         </div>

@@ -98,7 +98,7 @@
                 <div class="cadre rounded-lg p-6 shadow-xl">
                     <h1 class="text-4xl text-[#8A2BE2] mb-6">{{ Auth::user()->name }}</h1>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="profile-stats gradient-border rounded-lg p-5 bg-opacity-30 bg-black">
+                    <div class="profile-stats gradient-border rounded-lg p-5 bg-opacity-30 bg-black">
                             <div class="flex items-center mb-2">
                                 <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#4B0082]">
                                     <i class="ri-at-line ri-lg text-[#4B0082]"></i>
@@ -106,6 +106,15 @@
                                 <h3 class="text-lg font-medium text-gray-300">Email</h3>
                             </div>
                             <p class="text-white pl-11">{{ Auth::user()->email }}</p>
+                        </div>
+                        <div class="profile-stats gradient-border rounded-lg p-5 bg-opacity-30 bg-black">
+                            <div class="flex items-center mb-2">
+                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#4B0082]">
+                                    <i class="ri-at-line ri-lg text-[#4B0082]"></i>
+                                </div>
+                                <h3 class="text-lg font-medium text-gray-300">Nom</h3>
+                            </div>
+                            <p class="text-white pl-11">{{ Auth::user()->name }}</p>
                         </div>
                         <div class="profile-stats gradient-border rounded-lg p-5 bg-opacity-30 bg-black">
                             <div class="flex items-center mb-2">
@@ -124,15 +133,6 @@
                                 <h3 class="text-lg font-medium text-gray-300">Âge</h3>
                             </div>
                             <p class="text-white pl-11">{{ Auth::user()->age }} ans</p>
-                        </div>
-                        <div class="profile-stats gradient-border rounded-lg p-5 bg-opacity-30 bg-black">
-                            <div class="flex items-center mb-2">
-                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#4B0082]">
-                                    <i class="ri-heart-line ri-lg"></i>
-                                </div>
-                                <h3 class="text-lg font-medium text-gray-300">Animés favoris</h3>
-                            </div>
-                            <p class="text-white pl-11">Pas encore ajouté</p>
                         </div>
                     </div>
                     <div class="mt-8 profile-stats gradient-border rounded-lg p-5 bg-opacity-30 bg-black">
@@ -174,15 +174,7 @@
                             </div>
                             <span class="text-xl font-bold">0</span>
                         </div>
-                        <div class="flex justify-between items-center p-3 bg-black bg-opacity-30 rounded-lg">
-                            <div class="flex items-center">
-                                <div class="w-8 h-8 flex items-center justify-center mr-3 text-[#8A2BE2]">
-                                    <i class="ri-star-line ri-lg  text-[#FF6B6B]"></i>
-                                </div>
-                                <span>Évaluations</span>
-                            </div>
-                            <span class="text-xl font-bold">0</span>
-                        </div>
+                       
                     </div>
                 </div>
                 <div class="cadre rounded-lg p-6 shadow-xl">
