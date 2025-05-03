@@ -271,11 +271,14 @@
                                             <div class="w-4 h-4 flex items-center justify-center">
                                                 <i class="ri-folder-line"></i>
                                             </div>
-                                            <span>{{ $content->category->nom }}</span>
+                                            <p class="text-sm text-gray-600 mb-2">
+    {{ $content->category ? $content->category->nom : 'Catégorie inconnue' }}
+</p>
                                         </div>
                                     </div>
                                     <div class="border-t border-gray-100 pt-3 space-y-3">
                                         <div class="flex items-center justify-between gap-2">
+                                            @if(Auth::user()->role == 'admin')
                                             <button
                                                 onClick="modifierContent({{$content->id}},'{{$content->titre}}', '{{$content->description}}','{{$content->datePublication}}','{{$content->type}}', {{$content->category_id}})"
                                                 class="flex items-center gap-1 text-gray-600 hover:text-[#7C3AED] text-sm transition-colors !rounded-button">
@@ -284,6 +287,7 @@
                                                 </div>
                                                 <span>Modifier</span>
                                             </button>
+                                            @endif
                                             <div class="flex items-center gap-2">
                                                 <a href="{{ route('content.quiz.index', ['content' => $content->id]) }}"
                                                     class="flex items-center gap-1 text-[#7C3AED] hover:text-[#7C3AED]/80 text-sm transition-colors">
@@ -301,6 +305,8 @@
                                                 </a>
                                             </div>
                                         </div>
+                                        @if(Auth::user()->role == 'admin')
+
                                         @if($content->type == "anime" && !isset($content->anime))
                                             <a href="{{ route('anime.create', ['content_id' => $content->id]) }}"
                                                 class="flex items-center justify-center gap-1 text-[#7C3AED] hover:text-[#7C3AED]/90 text-sm py-1.5 px-4 border border-[#7C3AED]/20 rounded-button transition-all hover:bg-[#7C3AED]/5">
@@ -318,6 +324,9 @@
                                                 <span>Ajouter le contenu manga</span>
                                             </a>
                                         @endif
+                                        @endif
+                                        @if(Auth::user()->role == 'admin')
+
                                         <button onClick="supprimerContent({{$content->id}})"
                                             class="w-full flex items-center justify-center gap-1 text-red-500 hover:text-red-600 text-sm py-1.5 px-4 border border-red-200 rounded-button transition-all hover:bg-red-50">
                                             <div class="w-4 h-4 flex items-center justify-center">
@@ -325,6 +334,7 @@
                                             </div>
                                             <span>Supprimer</span>
                                         </button>
+                                        @endif
                                         @if(in_array($content->id, $bibliothequeIds))
                                             <form action="{{ route('bibliotheque.retirer', ['content_id' => $content->id]) }}"
                                                 method="POST" class="flex justify-center">

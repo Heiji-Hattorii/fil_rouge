@@ -83,7 +83,9 @@
                                         </div>
                                         <div class="p-4">
                                             <h3 class="font-semibold text-gray-900 mb-1">{{ $content->titre }}</h3>
-                                            <p class="text-sm text-gray-600 mb-2">{{ $content->category->nom }}</p>
+                                            <p class="text-sm text-gray-600 mb-2">
+    {{ $content->category ? $content->category->nom : ' ' }}
+</p>
                                             <div class="flex justify-between items-center">
                                                 <span class="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">
                                                     @auth

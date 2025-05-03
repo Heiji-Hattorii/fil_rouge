@@ -182,6 +182,8 @@
                                                     class="inline-flex items-center px-3 py-1.5 bg-purple-50 text-purple-600 !rounded-button hover:bg-purple-100 whitespace-nowrap">
                                                     <i class="ri-eye-line mr-1"></i> Voir
                                                 </a>
+                                                @if(Auth::user()->role == 'admin')
+
                                                 <a href="{{ route('manga.chapitres.edit', $chapitre->id) }}"
                                                     class="inline-flex items-center px-3 py-1.5 bg-fuchsia-50 text-fuchsia-600 !rounded-button hover:bg-fuchsia-100 whitespace-nowrap">
                                                     <i class="ri-edit-line mr-1"></i> Modifier
@@ -204,6 +206,7 @@
                                                     class="inline-flex items-center px-3 py-1.5 bg-purple-50 text-purple-600 !rounded-button hover:bg-purple-100 whitespace-nowrap">
                                                     <i class="ri-pages-line mr-1"></i> Voir pages
                                                 </a>
+                                                @endif
                                                 <button
                                                     onclick="ouvrirCommentaireModal({{ $chapitre->manga->content_id }}, {{ $chapitre->id}}, null)"
                                                     class="inline-flex items-center px-3 py-1.5 bg-purple-50 text-purple-600 !rounded-button hover:bg-purple-100 whitespace-nowrap">

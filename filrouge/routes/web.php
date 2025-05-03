@@ -103,6 +103,7 @@ Route::middleware(['auth'])->group(function () {
 Route::post('/bibliotheque/ajouter/{content_id}', [BibliothequeController::class, 'ajouter'])->name('bibliotheque.ajouter');
 Route::delete('/bibliotheque/retirer/{content_id}', [BibliothequeController::class, 'retirer'])->name('bibliotheque.retirer');
 
+Route::get('/admin/statistics', [AdminController::class, 'statistics'])->name('admin.statistics');
 
 Route::post('/commentaire/store', [CommentaireController::class, 'store'])->name('commentaire.store');
 

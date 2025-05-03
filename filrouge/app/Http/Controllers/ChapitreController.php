@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Chapitre;
-use App\Models\Manga;
+use App\Models\Page;
 use App\Models\Commentaire;
 use App\Models\View;
 use Illuminate\Support\Facades\Auth;
@@ -39,6 +39,7 @@ class ChapitreController extends Controller
     public function show($id)
     {
         $chapitre = Chapitre::findOrFail($id);
+        $pages = Page::where('chapitre_id', $chapitre->id)->get();
         $comments = Commentaire::where('chapitre_id', $id)->orderBy('created_at', 'desc')->get();
 
         $deja_ajoute = false;
@@ -46,7 +47,7 @@ class ChapitreController extends Controller
             $deja_ajoute = auth()->user()->vues()->where('chapitre_id', $id)->exists();
         }
 
-        return view('manga.chapitres.show', compact('chapitre', 'comments', 'deja_ajoute'));
+        return view('manga.chapitres.show', compact('chapitre', 'comments', 'deja_ajoute','pages'));
     }
 
     public function edit($id)

@@ -94,6 +94,31 @@
             </div>
         </div>
         
+
+        <div class="mb-12">
+    <h3 class="text-2xl font-bold mb-6 flex items-center">
+        <div class="w-6 h-6 flex items-center justify-center mr-2">
+            <i class="ri-book-open-line"></i>
+        </div>
+        Lecture du Chapitre
+    </h3>
+
+    <div class="flex flex-wrap justify-center gap-4">
+        @foreach($pages as $page)
+            <div class="w-full md:w-[60%] lg:w-[80%] overflow-hidden rounded-lg shadow-lg transform ">
+                <img src="{{ asset($page->contenu) }}" 
+                     alt="Page du chapitre {{ $loop->iteration }}" 
+                     class="w-full h-auto object-cover rounded-lg border border-gray-700 hover:brightness-110 transition duration-300" />
+            </div>
+        @endforeach
+    </div>
+
+    @if($pages->isEmpty())
+        <p class="text-center text-gray-400 mt-8">Aucune page n’est disponible pour ce chapitre.</p>
+    @endif
+</div>
+
+
         <div class="mb-12">
             <h3 class="text-2xl font-bold mb-6 flex items-center">
                 <div class="w-6 h-6 flex items-center justify-center mr-2">

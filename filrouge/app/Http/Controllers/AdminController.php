@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Content;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -62,4 +63,22 @@ class AdminController extends Controller
 
         return redirect()->route('users.index')->with('success', 'Utilisateur supprimé avec succès.');
     }
+
+    public function statistics()
+    {
+            $totalUsers = User::count();
+    
+            $totalAnimes = Content::where('type', 'anime')->count();
+    
+            $totalMangas = Content::where('type', 'manga')->count();
+            $categories = Category::withCount([
+                'contents as animes_count' => function ($query) {
+                    $query->where('type', 'anime');
+                },
+                'contents as mangas_count' => function ($query) {
+                    $query->where('type', 'manga');
+                }
+            ])->get();
+            return view('statistics', compact('totalUsers', 'totalAnimes', 'totalMangas', 'categories'));
+        }
 }

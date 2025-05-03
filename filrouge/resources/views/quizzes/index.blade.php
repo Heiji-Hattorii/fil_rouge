@@ -1,7 +1,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 @include('partials.header')
 
-<div class="container mx-auto p-4">
+<div class="container mx-auto pt-20 p-4">
     <h1 class="text-xl font-bold mb-4">Quiz pour le contenu : {{ $content->titre }}</h1>
 
     @if ($quiz === null)
@@ -43,7 +43,7 @@
                 <button onclick="confirmDelete({{ $quiz->id }})"
                     class="bg-red-600 text-white px-3 py-1 rounded">Supprimer</button>
                 @if ($questions->count() > 0)
-                    <a href="{{ route('quiz.play', $quiz) }}" class="bg-green-600 text-white px-4 py-2 rounded">🎮 Commencer le
+                    <a href="{{ route('quiz.play', $quiz) }}" class="bg-green-600 text-white px-4 py-2 rounded">Commencer le
                         jeu</a>
                 @endif
             </div>
